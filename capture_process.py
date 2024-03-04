@@ -4,7 +4,6 @@ import re
 import time
 from dataclasses import dataclass
 from functools import lru_cache
-from itertools import combinations
 from typing import Literal
 
 from utils import (
@@ -13,7 +12,6 @@ from utils import (
     is_same_crash,
     label_packets,
     logger,
-    packet_mutated_field,
     packet_state,
     pcap_packet_reader,
 )
@@ -33,7 +31,7 @@ class Crash:
         fuzzed_pkts: list["FuzzedPacket"],
         pkt_loc,
         iteration,
-        reason: str | None,
+        identifier: str | None,
         raw: bytes,
         timestamp: int,
     ) -> None:
@@ -42,7 +40,7 @@ class Crash:
         )
         self.pkt_loc = pkt_loc
         self.iteration = iteration
-        self.reason = reason
+        self.identifier = identifier
         self.raw = raw
         self.timestamp = timestamp
 
@@ -101,22 +99,43 @@ class Capture:
         self.use_cache = use_cache
 
         self.crashes: list[Crash]  # To be filled in `discover_capture_crashes`
-        # self.crashes = self.discover_capture_crashes()
 
-    def auto_exploit(self):
-        pass
+    @staticmethod
+    def is_same_crash_id(id1, id2, thresh: int | None = None) -> bool:
+        # Here provides a fallback and most basic way to compare identifiers. This is more like
+        # an interface for different kinds of captures to actually implement, if necessary.
+        return id1 == id2
+
+    @staticmethod
+    def find_crash_identifier_from_run_log(run_log_path) -> str | None:
+        # Default way to get crash identifier, which is actually from WDissector output
+        if not os.path.exists(run_log_path):
+            logger.error(
+                f"Run log {run_log_path} does not exist, unable to find crash identifier."
+            )
+
+        with open(run_log_path, "r", encoding="utf8", errors="ignore") as f:
+            for line in f:
+                m = re.search(r"\[31m(\[Crash\] .*?)\[00m", line)
+                if m:
+                    return m.groups()[0]
+
+        return None
 
     def assign_identifier_to_crashes(self):
         # Default to use state information in the capture as crash identifier
         for crash in self.crashes:
             if self.protocol == "bt":
                 # crash.raw example: 00 00 00 00 0a fa [Crash] Crash detected at state TX / Baseband / FHS
-                crash.reason = crash.raw[6:].decode()
+                crash.identifier = crash.raw[6:].decode()
             elif self.protocol == "5g":
-                # TODO
+                # TODO Implement for 5g
                 pass
             else:
-                print("No gen_crash_identifier function implemented for", self.protocol)
+                logger.error(
+                    "No assign_identifier_to_crashes function implemented for",
+                    self.protocol,
+                )
 
     def discover_capture_crashes(self) -> None:
         """
@@ -167,7 +186,8 @@ class Capture:
         current_iteration = 0
         for packet_index, packet in pcap_packet_reader(self.path):
             pkt_comment = packet.options.get("opt_comment")
-            if pkt_comment == "Fuzzed from previous":  # mutated packet
+            # mutated packet
+            if pkt_comment == "Fuzzed from previous":
                 # field_name = packet_mutated_field(prev_packet_bytes, packet.packet_data) # KEEP
                 fuzzed_pkts.append(
                     FuzzedPacket(
@@ -208,57 +228,12 @@ class Capture:
                 packet.packet_data[4:13] == b"\n\xfa[Crash]"
                 and b"TX / LMP / LMP_detach" not in packet.packet_data
             ):
-                # generate packet states histogram
-                # pkt_histogram = {}
-                # for pkt in changed_pkts:
-                #     if current_iteration - pkt["iteration"] < max_iterations:
-                #         pkt_histogram[pkt["state"]] = (
-                #             pkt_histogram.get(pkt["state"], 0) + 1
-                #         )
-
-                # # sort by occurrence
-                # pkt_histogram = {
-                #     k: v
-                #     for k, v in sorted(
-                #         pkt_histogram.items(),
-                #         key=lambda item: item[1],
-                #         reverse=True,
-                #     )
-                # }
-
-                # Sometimes there is no corresponding crash reason from monitor.txt for some crashes, need
-                # to check the timestamp to see if the reason is pointing to the correct crash
-                # The timestamp in the log can be in GMT+8 or GMT or GMT-8 zone
-                # TODO: Optimize this
-                # reason = "not_found"
-                # for trial in range(3):
-                #     if crash_reason_idx + trial >= len(crash_reasons):
-                #         break
-                #     if (
-                #         abs(
-                #             block.timestamp
-                #             - crash_reasons[crash_reason_idx + trial][1]
-                #         )
-                #         < 2
-                #         or abs(
-                #             abs(
-                #                 block.timestamp
-                #                 - crash_reasons[crash_reason_idx + trial][1]
-                #             )
-                #             - 8 * 60 * 60
-                #         )
-                #         < 2
-                #     ):
-                #         reason = crash_reasons[crash_reason_idx + trial][0]
-                #         crash_reason_idx = crash_reason_idx + trial + 1
-                #         break
-
                 crashes.append(
                     Crash(
                         fuzzed_pkts=fuzzed_pkts[:],
                         pkt_loc=packet_index,
                         iteration=current_iteration,
-                        reason=None,
+                        identifier=None,
                         raw=packet.packet_data,
                         timestamp=packet.timestamp,
                     )
@@ -280,35 +255,11 @@ class Capture:
         with open(self.capture_crash_cache_path, "wb") as f:
             pickle.dump({"crashes": self.crashes, "cache_version": cache_version}, f)
 
-    @staticmethod
-    def is_same_crash_identifier(id1, id2, thresh: int | None = None) -> bool:
-        # Here provides a fallback and most basic way to compare identifiers. This is more like
-        # an interface for different kinds of captures to actually implement, if necessary.
-        return id1 == id2
-
-    @staticmethod
-    def find_crash_identifier_from_run_log(run_log_path) -> str | None:
-        # Default way to get crash identifier, which is actually from WDissector output
-        if not os.path.exists(run_log_path):
-            logger.error(
-                f"Run log {run_log_path} does not exist, unable to find crash identifier."
-            )
-
-        with open(run_log_path, "r", encoding="utf8", errors="ignore") as f:
-            for line in f:
-                m = re.search(r"\[31m(\[Crash\] .*?)\[00m", line)
-                if m:
-                    return m.groups()[0]
-
-        return None
-
-    def group_crashes(self, same_crash_threshold):
-        # First find the indexes of same crashes from the capture
-        # E.g. [[2,4,7] , [3,10,61]], each list element inside same_crash_indexes represents
-        # one crash which happens multiple times.
-        # Note to me that `itertools.groupby` is not a feasible solution
-        # same_crash_indexes: list[list[int]] = []
+    def group_crashes(self, same_crash_threshold: int):
+        # Group the same kind of crashes based on their identifiers.
+        # Developer note: `itertools.groupby` is not a feasible solution here.
         grouped_crashes: list[list[Crash]] = []
+
         # Helper variable to indicate if a crash is already visited
         visited = [0] * len(self.crashes)
         for idx1, crash1 in enumerate(self.crashes):
@@ -317,180 +268,21 @@ class Capture:
 
             visited[idx1] = 1
             same_crashes = [crash1]
-            # same_crash_index = [idx1]
-
-            # if idx1 == len(self.crashes) - 1:
-            #     # no next crash, this is the last one
-            #     grouped_crashes.append(same_crashes)
-            #     break
 
             for idx2, crash2 in enumerate(self.crashes):
-                if idx1 >= idx2:
+                if idx2 <= idx1:
                     # no need to revisit
                     continue
 
-                if self.is_same_crash_identifier(
-                    crash1.reason, crash2.reason, same_crash_threshold
+                if self.is_same_crash_id(
+                    crash1.identifier, crash2.identifier, same_crash_threshold
                 ):
                     same_crashes.append(crash2)
                     visited[idx2] = 1
 
-                # # TODO: optimize
-                # if self.board == "cypress":
-                #     if is_same_crash(
-                #         str(crash1.raw), str(crash2.raw), same_crash_threshold
-                #     ):
-                #         same_crash_index.append(idx2)
-                #         shown[idx2] = 1
-                # else:
-                #     if is_same_crash(
-                #         crash1.reason, crash2.reason, same_crash_threshold
-                #     ):
-                #         same_crash_index.append(idx2)
-                #         shown[idx2] = 1
-
-            # same_crash_indexes.append(same_crash_index)
             grouped_crashes.append(same_crashes)
 
         return grouped_crashes
-
-    def gen_histogram(
-        self,
-        max_iterations: int,
-        sort_by_occurrence=False,
-        sort_ascending=True,
-        same_crash_threshold: int = 2000,
-        common_states_only: bool = True,
-    ):
-        """
-        Generate histogram statistics for the capture by combining same crash statistics from
-        the capture. There are many crashes inside a capture file, and some of them are the same
-        or can be considered as the same.
-        Return [
-            same_crash_1_diagram,
-            same_crash_2_diagram, ...
-        ]
-        same_crash_1_diagram format: {
-            "reasons": {"reason_1": occurrence, "reason_2": occurrence},
-            "histogram": {"state_1": occurrence, "state_2": occurrence},
-            "num_crashes":,
-        }
-        """
-        same_crash_indexes = self.group_crashes(same_crash_threshold)
-        combined_histogram = []
-        for same_crash_index in same_crash_indexes:
-            reasons = {}
-            same_crash_histogram = {}
-            states_occurrence = {}
-            for idx in same_crash_index:
-                reasons[self.crashes[idx].reason] = (
-                    reasons.get(self.crashes[idx].reason, 0) + 1
-                )
-                crash_histogram = self.crashes[idx].gen_histogram(max_iterations)
-                for state in crash_histogram:
-                    states_occurrence[state] = states_occurrence.get(state, 0) + 1
-
-            for idx in same_crash_index:
-                crash_histogram = self.crashes[idx].gen_histogram(max_iterations)
-                for state in states_occurrence:
-                    if common_states_only:
-                        if states_occurrence[state] < len(same_crash_index):
-                            # not all crash has this state
-                            continue
-
-                    same_crash_histogram[state] = same_crash_histogram.get(state, 0) + 1
-
-            if sort_by_occurrence:
-                same_crash_histogram = {
-                    k: v
-                    for k, v in sorted(
-                        same_crash_histogram.items(),
-                        key=lambda item: item[1],
-                        reverse=not sort_ascending,
-                    )
-                }
-
-            combined_histogram.append(
-                {
-                    # "pkt_locs": [self.crashes[i]["pkt_loc"] for i in same_crash_index],
-                    "reasons": reasons,
-                    "histogram": same_crash_histogram,
-                    "num_crashes": len(same_crash_index),
-                }
-            )
-
-        return combined_histogram
-
-        # include all states in the result
-        if not common_states_only:
-            for same_crash_index in same_crash_indexes:
-                for i in same_crash_index:
-                    reasons[self.crashes[i]["reason"]] = (
-                        reasons.get(self.crashes[i]["reason"], 0) + 1
-                    )
-
-                    for j in self.crashes[i]["histogram"]:
-                        same_crash_histogram[j] = (
-                            same_crash_histogram.get(j, 0)
-                            + self.crashes[i]["histogram"][j]
-                        )
-
-                combined_histogram.append(
-                    {
-                        "pkt_locs": [
-                            self.crashes[i]["pkt_loc"] for i in same_crash_index
-                        ],
-                        "reasons": reasons,
-                        "histogram": same_crash_histogram,
-                        "num_crashes": len(same_crash_index),
-                    }
-                )
-            return combined_histogram
-        else:
-            for same_crash_index in same_crash_indexes:
-                # only include the same keys in the result histogram
-                common_keys = self.crashes[same_crash_index[0]].histogram.keys()
-                for crash_index in same_crash_index[1:]:
-                    common_keys = (
-                        common_keys & self.crashes[crash_index].histogram.keys()
-                    )
-
-                same_crash_histogram = {}
-                for crash_index in same_crash_index:
-                    for k in common_keys:
-                        same_crash_histogram[k] = (
-                            same_crash_histogram.get(k, 0)
-                            + self.crashes[crash_index].histogram[k]
-                        )
-
-                # sort
-                same_crash_histogram = {
-                    k: v
-                    for k, v in sorted(
-                        same_crash_histogram.items(),
-                        key=lambda item: item[1],
-                        reverse=True,
-                    )
-                }
-                # common_histogram = dict(
-                #     sorted(common_histogram.items(), key=lambda i: i[1], reverse=True)
-                # )
-                reasons = {}
-                for i in same_crash_index:
-                    reasons[self.crashes[i].reason] = (
-                        reasons.get(self.crashes[i].reason, 0) + 1
-                    )
-
-                combined_histogram.append(
-                    {
-                        "pkt_locs": [self.crashes[i].pkt_loc for i in same_crash_index],
-                        "reasons": reasons,
-                        "histogram": same_crash_histogram,
-                        "num_crashes": len(same_crash_index),
-                    }
-                )
-
-        return combined_histogram
 
 
 class ESP32Capture(Capture):
@@ -499,51 +291,39 @@ class ESP32Capture(Capture):
         self.log_path = log_path
 
     def assign_identifier_to_crashes(self):
-        # crash identifier: Backtrace||Backtrace TODO: update existing format which is using single | as separator
+        # More crash information can be retrieved on ESP32 board from fuzzing log.
+        # Some backtrace lines are present in logs when crash happens on ESP32 board.
+        # crash identifier: Backtrace||Backtrace
+        # TODO: update existing format which is using single | as separator
         if not os.path.exists(self.log_path):
-            # super().gen_crash_identifier()
+            super().assign_identifier_to_crashes()
             return
-        crash_identifiers = extract_crash_reason_bt(self.log_path)
-        crash_identifiers_index = 0
+        crash_ids = extract_crash_reason_bt(self.log_path)
+        crash_ids_index = 0
+        max_window = 2
 
         for crash in self.crashes:
-            reason = "not_found"
+            identifier = "not_found"
             # TODO: trial should be replaced with try until log's timestamp bigger than crash's
+            # Possible that the log is using UTC+8 while the timestamps in capture file are using UTC+0, or reversely
             for trial in range(3):
-                # Possible that the log is using UTC+8 while the timestamps in capture file are using UTC+0
-                if crash_identifiers_index + trial >= len(crash_identifiers):
+                if crash_ids_index + trial >= len(crash_ids):
                     break
-                diff = abs(
-                    crash.timestamp
-                    - crash_identifiers[crash_identifiers_index + trial][1]
-                )
-                if diff % (8 * 60 * 60) < 2:
-                    reason = crash_identifiers[crash_identifiers_index + trial][0]
-                    crash_identifiers_index = crash_identifiers_index + trial + 1
+                diff = abs(crash.timestamp - crash_ids[crash_ids_index + trial][1])
+                # consider diff = 8 * 60 * 60 + 1 or 8 * 60 * 60 - 1
+                diff_remainder = diff % (8 * 60 * 60)
+                if (
+                    diff_remainder < max_window
+                    or abs(diff_remainder - 8 * 60 * 60) < max_window
+                ):
+                    identifier = crash_ids[crash_ids_index + trial][0]
+                    crash_ids_index = crash_ids_index + trial + 1
                     break
-                # if (
-                #     abs(
-                #         crash.timestamp
-                #         - crash_identifiers_ts[crash_identifiers_index + trial][1]
-                #     )
-                #     < 2
-                #     or abs(
-                #         abs(
-                #             crash.timestamp
-                #             - crash_identifiers_ts[crash_identifiers_index + trial][1]
-                #         )
-                #         - 8 * 60 * 60
-                #     )
-                #     < 2
-                # ):
-                #     reason = crash_identifiers_ts[crash_identifiers_index + trial][0]
-                #     crash_identifiers_index = crash_identifiers_index + trial + 1
-                #     break
 
-            crash.reason = reason
+            crash.identifier = identifier
 
     @staticmethod
-    def is_same_crash_identifier(id1, id2, thresh: int) -> bool:
+    def is_same_crash_id(id1, id2, thresh: int) -> bool:
         # TODO
         return is_same_crash(id1, id2, thresh)
 
@@ -564,35 +344,6 @@ class CypressCapture(Capture):
 # run_exploit should return
 # 1. execution result
 # 2. crash identifier, if any
-
-
-# class PicklableEnhancedPacket:
-#     # EnhancedPacket object from `python-pcapng` module somehow cannot be saved using `pickle` or `dill` module.
-#     def __init__(self, pcapng_packet: EnhancedPacket) -> None:
-#         self.packet_data = pcapng_packet.packet_data
-
-
-# Reason for issue "Can't get attribute 'XX' on <module '__main__' from 'YY'":
-# https://stackoverflow.com/a/27733727 Workaround: https://stackoverflow.com/a/27733727
-# class CustomUnpickler(pickle.Unpickler):
-#     # usage: _crashes = CustomUnpickler(f).load()
-#     def find_class(self, module, name):
-#         if name == "PicklableEnhancedPacket":
-#             return PicklableEnhancedPacket
-#         return super().find_class(module, name)
-
-
-# TODO: bad function, should remove
-# def extract_crash_reason(log_path, capture_type):
-#     # log_path can be pcap file path or actual log file path
-#     if log_path.endswith(".pcap") or log_path.endswith(".pcapng"):
-#         # log with be in the directory as capture file with name `monitor.1.txt`
-#         actual_log_path = os.path.join(os.path.dirname(log_path), "monitor.1.txt")
-#     else:
-#         actual_log_path = log_path
-
-#     if capture_type == "bt":
-#         return extract_crash_reason_bt(actual_log_path)
 
 
 def extract_crash_reason_bt(log_path):
@@ -623,46 +374,21 @@ def extract_crash_reason_bt(log_path):
     # TODO: store ELF file hash somewhere
     timestamp = ""
     for line in reason_txt:
-        """
-        Version 1
-        The log might be missing some part, e.g. "Guru Meditation Error" line may not be there
-        when crash happens, but "Backtrace" line is there.
-
-        if "Guru Meditation Error" in line:
-            if reason != "":
-                reasons.append([reason, timestamp])
-            reason = timestamp_re.sub("", line).strip()
-            if len(timestamp_re.findall(line)) == 0:
-                continue
-            timestamp = timestamp_re.findall(line)[0]
-            # The timestamp in the log file is in UTC+8
-            timestamp = (
-                time.mktime(time.strptime(timestamp, "[%Y-%m-%d %H:%M:%S.%f]"))
-                - 8 * 60 * 60
-            )
-        elif "Backtrace:" in line:
-            reason = reason + "|" + timestamp_re.sub("", line).strip()
-        """
-
         # find all "Guru Meditation Error" and "Backtrace" lines, then group the lines with timestamp
-        # falling within 10 seconds into one crash reason
+        # falling within 1 seconds slot into one crash identifier
         if ("Guru Meditation Error" in line) or ("Backtrace:" in line):
             reason = timestamp_re.sub("", line).strip()
             if len(timestamp_re.findall(line)) == 0:
                 timestamp = 0
             else:
-                # The timestamp in the log file is in UTC+8 or UTC, TODO
-                timestamp = (
-                    time.mktime(
-                        time.strptime(
-                            timestamp_re.findall(line)[0], "[%Y-%m-%d %H:%M:%S.%f]"
-                        )
+                timestamp = time.mktime(
+                    time.strptime(
+                        timestamp_re.findall(line)[0], "[%Y-%m-%d %H:%M:%S.%f]"
                     )
-                    - 8 * 60 * 60
                 )
 
             # append reason if they are very close in terms of time
-            if len(reasons) > 0 and abs(timestamp - reasons[-1][1]) < 10:
+            if len(reasons) > 0 and abs(timestamp - reasons[-1][1]) < 1:
                 reasons[-1][0] = reasons[-1][0] + "|" + reason
             else:
                 reasons.append([reason, timestamp])
@@ -670,10 +396,3 @@ def extract_crash_reason_bt(log_path):
     # Remember to append the last reason
     # reasons.append([reason, timestamp]) # Version 1 need
     return reasons
-
-
-if __name__ == "__main__":
-    mut_capture_path = "/home/user/wdissector/bindings/python/captures/bluetooth_esp32/mut/capture_bluetooth.pcapng"
-    mut_capture = Capture(mut_capture_path, "bt", use_cache=True)
-    # combine_histogram(mut_capture, 2000)
-    print(mut_capture.gen_histogram(2000, 1))

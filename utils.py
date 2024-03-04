@@ -1,10 +1,10 @@
 import hashlib
-import json
 import logging
 import os
 import shutil
 import signal
 import subprocess
+import sys
 import tempfile
 import time
 
@@ -20,17 +20,29 @@ from wdissector import (
     WDPacketLabelGenerator,
     packet_read_field_abbrev,
     wd_packet_dissect,
-    wd_packet_show,
-    wd_packet_summary,
     wd_pkt_label,
     wd_read_field_by_offset,
     wd_set_dissection_mode,
     wd_set_packet_direction,
 )
 
-logger = logging.getLogger("auto-exploiter")
-logger.addHandler(logging.StreamHandler())
-logger.setLevel(logging.DEBUG)
+
+def init_logger():
+    # TODO: this function needs to be prevented from being called multiple times
+    logger = logging.getLogger("auto-exploiter")
+    logger.setLevel(logging.DEBUG)
+    logger.addHandler(logging.StreamHandler(sys.stdout))
+    filehandler = logging.FileHandler("auto-exploiter.log", mode="w", encoding="utf8")
+    filehandler.setFormatter(
+        logging.Formatter(
+            "%(asctime)s - %(levelname)s - %(filename)s:%(funcName)s:%(lineno)d - %(message)s"
+        )
+    )
+    logger.addHandler(filehandler)
+    return logger
+
+
+logger = init_logger()
 
 
 class WDCrash(Exception):
@@ -127,7 +139,7 @@ def monitor_log(log_path, modem_timeout, exploit_timeout):
         #         line = custom_readline(log)
         # time.sleep(1)
 
-        # If the crash does not happen within some timeframe, the exploit unlikely trigger a crash
+        # If the crash does not happen within some timeframe, the exploit can unlikely trigger a crash
         print("Running exploit...")
         start = time.time()
         while True:
@@ -136,7 +148,6 @@ def monitor_log(log_path, modem_timeout, exploit_timeout):
 
             line = custom_readline(log)
             while line != "":
-                # print("line:", line)
                 if "[Crash]" in line:
                     print(line)
                     # raise WDCrash
@@ -176,7 +187,15 @@ def clear_logcat():
 
 
 def run_exploit(
-    exploit_name: str, modem_timeout: int, exploit_timeout: int, log_path=None
+    exploit_name: str,
+    modem_timeout: int,
+    exploit_timeout: int,
+    exploit_running_dir: str,
+    host_port: str,
+    target: str,
+    target_port: str,
+    target_hub_port: int,
+    log_path=None,
 ):
     # Run the specified exploit.
     #
@@ -193,31 +212,23 @@ def run_exploit(
     #   This issue is related to disk write buffer. To get the output in real time, we can utilize `script`
     #   command with `--flush` parameter so that the file is flushed on every write.
 
-    #   About timeout in process invoking:
+    #   More about timeout in process invoking:
     #   https://alexandra-zaharia.github.io/posts/kill-subprocess-and-its-children-on-timeout-python/
 
     prev_dir = os.getcwd()  # save current directory so that can switch back later
-    os.chdir("/home/user/wdissector2")
-    num_retry = 3
-    num_retried = 0
-    logger.debug("test6")
-    while num_retried <= num_retry:
-        # Retry when some problems happen
-        if num_retried > 0:
-            logger.info(f"Retrying... {num_retried}/{num_retry}")
-
-        # logger.info("Restart")
+    os.chdir(exploit_running_dir)
+    max_retry = 3
+    for num_retried in range(max_retry):
         # restart target device before running exploits
         subprocess.run(
-            "/home/user/wdissector/3rd-party/uhubctl/uhubctls -a cycle -p 2",  # ESP32 is on hub port 2
+            f"/home/user/wdissector/3rd-party/uhubctl/uhubctls -a cycle -p {target_hub_port}",
             shell=True,
             stdout=subprocess.PIPE,
         )
-        time.sleep(3)
+        time.sleep(2.5)
 
         try:
-            #
-            # clear_logcat()
+            # clear_logcat() # TODO: this is for 5G only
             temp_file = tempfile.NamedTemporaryFile(delete=False)
             temp_file.close()
             # need to run the exploit in the same process group of `script` command, check https://unix.stackexchange.com/a/670123
@@ -226,18 +237,10 @@ def run_exploit(
             2. `24:0a:c4:61:1c:1a` ESP32
             3. `20:73:5b:18:6c:f2` cypress device
             """
-            cmd = f'echo "set +m && sudo bin/bt_fuzzer --no-gui --target fc:f5:c4:26:fa:b6 --exploit={exploit_name}" | script {temp_file.name} --flush'
-            print(cmd)
-            # print("cwd:", subprocess.check_output("pwd"))
-            p = subprocess.Popen(
-                cmd, start_new_session=True, shell=True
-            )  #  stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-            # print("pid:", p.pid)
+            cmd = f'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port {host_port} --target-port {target_port} --target {target} --exploit={exploit_name}" | script {temp_file.name} --flush'
+            logger.info(f"Running command: '{cmd}'")
+            p = subprocess.Popen(cmd, start_new_session=True, shell=True)
             monitor_log(temp_file.name, modem_timeout, exploit_timeout)
-            # p.wait(timeout=timeout)
-        # except subprocess.TimeoutExpired:
-        #     os.killpg(os.getpgid(p.pid), signal.SIGTERM)
-        # clean all running script with command like "--exploit=xx_exploit" using `ps`
         except WDCrash:
             print("Crash found for exploit:", exploit_name)
             # raise WDCrash, need to wait until guru log, see the next except
@@ -271,20 +274,16 @@ def run_exploit(
         finally:
             os.killpg(os.getpgid(p.pid), signal.SIGTERM)
             clean_up(exploit_name, temp_file.name)
-
+    else:
+        logger.error(f"Exploit {exploit_name} fails to run after {max_retry} retries.")
     os.chdir(prev_dir)
     output = open(temp_file.name, "r", encoding="utf8", errors="ignore").read()
     if log_path is not None:
         os.makedirs(os.path.dirname(log_path), exist_ok=True)
         shutil.copyfile(temp_file.name, log_path)
-    os.unlink(temp_file.name)
-
-    # reset modem after trying one exploit
-    # TODO: Try config in global_config.json: USBHubControl
-    # subprocess.run("/usr/sbin/uhubctl -a cycle -p 2", shell=True, stdout=subprocess.PIPE)
+    os.unlink(temp_file.name)  # TODO: why use temp file?
 
     return output
-    # return p.communicate()
 
 
 def restart_modem():
@@ -344,11 +343,6 @@ def packet_state(pkt, pkt_decoding_offset):
     wd_set_packet_direction(wd, dir)
     wd_packet_dissect(wd, pkt, len(pkt))
 
-    # fd_0 = wd_read_field_by_offset(wd, 12)
-    # if fd_0 is not None:
-    #     print(f'Field Name at Offset 12: "{packet_read_field_abbrev(fd_0)}"')
-    # print(pkt.hex())
-
     # 3) Run State Mapper
     transition_ok = StateMachine.RunStateMapper(
         wd, dir == WD_DIR_TX
@@ -372,7 +366,6 @@ if not ret:
 wd_set_dissection_mode(
     wd, WD_MODE_FULL
 )  # Enable FULL dissection mode if using wd_read_field_by_offset
-# add offset information, {layername}.{offset}, occurrence number
 
 
 def label_packets(pkt: bytes, direction=WD_DIR_TX, pkt_decoding_offset=4):
@@ -551,19 +544,6 @@ def is_same_crash(crash_id1: str, crash_id2: str, threshold: int = 2000):
     return is_same_backtrace(bt11, bt21, threshold) and is_same_backtrace(
         bt12, bt22, threshold
     )
-
-
-with open("./existing_crashes.json", "r", encoding="utf8") as f:
-    existing_crashes = json.load(f)
-
-
-def match_existing_crash(crash_id):
-    for crash_name, crash_ids in existing_crashes.items():
-        for existing_crash_id in crash_ids:
-            if is_same_crash(crash_id, existing_crash_id["crash_id"], 2000):
-                return crash_name
-
-    return None
 
 
 if __name__ == "__main__":
