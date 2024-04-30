@@ -273,6 +273,8 @@ class Capture:
                 if idx2 <= idx1:
                     # no need to revisit
                     continue
+                if visited[idx2] == 1:
+                    continue
 
                 if self.is_same_crash_id(
                     crash1.identifier, crash2.identifier, same_crash_threshold
