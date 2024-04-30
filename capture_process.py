@@ -261,28 +261,29 @@ class Capture:
         grouped_crashes: list[list[Crash]] = []
 
         # Helper variable to indicate if a crash is already visited
-        visited = [0] * len(self.crashes)
+        same_crash_indexes_map: dict[int, list] = {}
         for idx1, crash1 in enumerate(self.crashes):
-            if visited[idx1] == 1:
-                continue
-
-            visited[idx1] = 1
-            same_crashes = [crash1]
-
+            same_crash_indexes_map[idx1] = []
             for idx2, crash2 in enumerate(self.crashes):
-                if idx2 <= idx1:
-                    # no need to revisit
-                    continue
-                if visited[idx2] == 1:
-                    continue
-
                 if self.is_same_crash_id(
                     crash1.identifier, crash2.identifier, same_crash_threshold
                 ):
-                    same_crashes.append(crash2)
-                    visited[idx2] = 1
+                    same_crash_indexes_map[idx1].append(idx2)
 
-            grouped_crashes.append(same_crashes)
+        visited = set()
+        for k, v in same_crash_indexes_map.items():
+            if k in visited:
+                continue
+            visited.add(k)
+            temp = set([k])
+            for i in v:
+                temp.add(i)
+                visited.add(i)
+                for j in same_crash_indexes_map[i]:
+                    temp.add(j)
+                    visited.add(j)
+
+            grouped_crashes.append([self.crashes[i] for i in temp])
 
         return grouped_crashes
 
