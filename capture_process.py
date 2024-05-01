@@ -44,32 +44,6 @@ class Crash:
         self.raw = raw
         self.timestamp = timestamp
 
-    @lru_cache(maxsize=32)
-    def gen_histogram(
-        self, max_iterations, sort_by_occurrence=False, sort_ascending=True
-    ):
-        """
-        Generate histogram statistics for the crash
-
-        max_iterations: control how far the histogram should trace back and include
-        """
-        pkt_histogram = {}
-        for p in self.fuzzed_pkts:
-            if self.iteration - p.iteration < max_iterations:
-                pkt_histogram[p.state] = pkt_histogram.get(p.state, 0) + 1
-
-        if sort_by_occurrence:
-            pkt_histogram = {
-                k: v
-                for k, v in sorted(
-                    pkt_histogram.items(),
-                    key=lambda item: item[1],
-                    reverse=not sort_ascending,
-                )
-            }
-
-        return pkt_histogram
-
 
 @dataclass
 class FuzzedPacket:
