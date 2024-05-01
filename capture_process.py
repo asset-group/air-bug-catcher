@@ -54,9 +54,9 @@ class Crash:
         max_iterations: control how far the histogram should trace back and include
         """
         pkt_histogram = {}
-        for pkt in self.fuzzed_pkts:
-            if self.iteration - pkt.iter < max_iterations:
-                pkt_histogram[pkt.state] = pkt_histogram.get(pkt.state, 0) + 1
+        for p in self.fuzzed_pkts:
+            if self.iteration - p.iteration < max_iterations:
+                pkt_histogram[p.state] = pkt_histogram.get(p.state, 0) + 1
 
         if sort_by_occurrence:
             pkt_histogram = {
