@@ -170,3 +170,12 @@ plots/
 
 logs/
 cache/
+
+greyhound_exploits/
+
+# WDissector libs, configurations
+wdissector.i
+wdissector.py
+wdissector_wrap.cxx
+bin
+configs
