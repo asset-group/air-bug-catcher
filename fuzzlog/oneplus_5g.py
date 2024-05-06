@@ -1,12 +1,11 @@
 import os
 import re
 
-from capture_process import Crash
 from constants import CAPTURE_CACHE_PATH
 from utils import ae_logger, calc_file_sha256, extract_ts
 from utils_wdissector import assign_crash_ids_wdissector, discover_crashes_wdissector
 
-from .fuzzlog import FuzzLog, FuzzLogCache
+from .fuzzlog import Crash, FuzzLog, FuzzLogCache
 
 
 class OnePlus5GFuzzLog(FuzzLog):
@@ -130,6 +129,7 @@ class OnePlus5GFuzzLog(FuzzLog):
             crash.identifier = identifier
 
     def discover_crashes(self):
+        ae_logger.info("Discovering crashes...")
         # Load from cache if possible
         if self.fuzzlog_cache is not None:
             crashes = self.fuzzlog_cache.load()

@@ -1,12 +1,11 @@
 import os
 import re
 
-from capture_process import Crash
 from constants import CAPTURE_CACHE_PATH
 from utils import ae_logger, calc_file_sha256, extract_ts, is_same_crash
 from utils_wdissector import assign_crash_ids_wdissector, discover_crashes_wdissector
 
-from .fuzzlog import FuzzLog, FuzzLogCache
+from .fuzzlog import Crash, FuzzLog, FuzzLogCache
 
 
 class ESP32BtFuzzLog(FuzzLog):
@@ -214,8 +213,9 @@ class ESP32BtFuzzLog(FuzzLog):
             crash.identifier = identifier
 
     def discover_crashes(self):
+        ae_logger.info("Discovering crashes...")
         # Load from cache if possible
-        if self.fuzzlog_cache is not None:
+        if self.use_cache and self.fuzzlog_cache is not None:
             crashes = self.fuzzlog_cache.load()
             if crashes is not None:
                 self.crashes = crashes
@@ -225,5 +225,5 @@ class ESP32BtFuzzLog(FuzzLog):
         self.assign_crash_identifiers()
 
         # Save cache of possible
-        if self.fuzzlog_cache is not None:
+        if self.use_cache and self.fuzzlog_cache is not None:
             self.fuzzlog_cache.save(self.crashes)

@@ -1,9 +1,44 @@
 import os
 import pickle
-from typing import Callable
+from dataclasses import dataclass
+from typing import Callable, Literal
 
-from capture_process import BoardType, Crash, ProtocolType
 from utils import ae_logger, calc_bytes_sha256
+
+BoardType = Literal["esp32", "cypress", "nordic", "oneplus"]
+ProtocolType = Literal["5g", "bt", "ble"]
+
+
+class Crash:
+    def __init__(
+        self,
+        fuzzed_pkts: list["FuzzedPkt"],
+        loc: int,
+        iteration: int,
+        identifier: str | None,
+        crash_type: str,
+        raw: bytes,
+        timestamp: int,
+    ) -> None:
+        self.fuzzed_pkts = fuzzed_pkts  # this should be in ascending order by "loc" key
+        self.loc = loc
+        self.iteration = iteration
+        self.identifier = identifier
+        self.type = crash_type
+        self.raw = raw
+        self.timestamp = timestamp
+
+
+@dataclass
+class FuzzedPkt:
+    pkt_bytes: bytes
+    loc: int
+    iteration: int
+    state: str
+    filter: str | None
+    type: Literal["mutation", "duplication"]
+    fuzz_info: list[str] | None
+    prev_pkt_bytes: bytes
 
 
 class FuzzLog:

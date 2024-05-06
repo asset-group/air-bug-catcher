@@ -10,11 +10,14 @@ def assign_crash_ids_wdissector(crashes: list[Crash]):
     # TODO: add logic for [Timeout]
     for crash in crashes:
         if crash.type == "normal":
-            identifier = str(
-                re.findall(rb"\[Crash\] Crash detected at state (.*)", crash.raw)[0]
-            )
-            identifier = identifier.replace('"', "")
-            crash.identifier = identifier
+            find_res = re.findall(rb"\[Crash\] Crash detected at state (.*)", crash.raw)
+            if len(find_res) > 0:
+                identifier = str(find_res[0])
+                identifier = identifier.replace('"', "")
+                crash.identifier = identifier
+            else:
+                # TODO: fallback to last fuzzed packet state
+                crash.identifier = "timeout_" + crash.fuzzed_pkts[-1].state
         elif crash.type == "timeout":
             crash.identifier = "timeout_" + crash.fuzzed_pkts[-1].state
         else:
