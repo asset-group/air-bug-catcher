@@ -131,7 +131,7 @@ class OnePlus5GFuzzLog(FuzzLog):
     def discover_crashes(self):
         ae_logger.info("Discovering crashes...")
         # Load from cache if possible
-        if self.fuzzlog_cache is not None:
+        if self.use_cache and self.fuzzlog_cache is not None:
             crashes = self.fuzzlog_cache.load()
             if crashes is not None:
                 self.crashes = crashes
@@ -141,5 +141,5 @@ class OnePlus5GFuzzLog(FuzzLog):
         self.assign_crash_identifiers()
 
         # Save cache of possible
-        if self.fuzzlog_cache is not None:
+        if self.use_cache and self.fuzzlog_cache is not None:
             self.fuzzlog_cache.save(self.crashes)
