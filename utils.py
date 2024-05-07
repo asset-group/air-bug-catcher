@@ -32,6 +32,15 @@ from wdissector import (
 )
 
 
+def count_mut_dup(exploit_path: str):
+    # count the number of mutated and duplicated packets inside exploit_path
+    exploit_content = open(exploit_path, "r", encoding="utf8", errors="ignore").read()
+    mut_count = exploit_content.count("Send mutated packet now")
+    dup_count = exploit_content.count("Send duplicated packet now")
+
+    return mut_count, dup_count
+
+
 def random_string(size: int) -> str:
     return "".join(
         random.choice(string.ascii_lowercase + string.digits) for _ in range(size)
