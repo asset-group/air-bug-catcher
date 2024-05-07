@@ -1,6 +1,6 @@
 import re
 
-from capture_process import Crash, FuzzedPkt
+from fuzzlog.fuzzlog import Crash, FuzzedPkt
 from utils import WDissectorTool, ae_logger, pcap_pkt_reader
 from wdissector import WD_DIR_TX
 
@@ -10,9 +10,12 @@ def assign_crash_ids_wdissector(crashes: list[Crash]):
     # TODO: add logic for [Timeout]
     for crash in crashes:
         if crash.type == "normal":
-            find_res = re.findall(rb"\[Crash\] Crash detected at state (.*)", crash.raw)
+            find_res = re.findall(
+                rb"\[Crash\] (Crash detected at state|Device Removed at state) (.*)",
+                crash.raw,
+            )
             if len(find_res) > 0:
-                identifier = str(find_res[0])
+                identifier = find_res[0][1].decode()
                 identifier = identifier.replace('"', "")
                 crash.identifier = identifier
             else:
