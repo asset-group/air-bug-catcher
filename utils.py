@@ -13,6 +13,7 @@ from pcapng import FileScanner
 from pcapng.blocks import EnhancedPacket
 from pcapng.exceptions import TruncatedFile
 
+from constants import RUN_LOG_PATH
 from wdissector import (
     WD_DIR_TX,
     WD_MODE_FULL,
@@ -50,8 +51,8 @@ def get_logger(name: str):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
     logger.addHandler(logging.StreamHandler(sys.stdout))
-    filehandler = logging.FileHandler(f"logs/{name}.log", mode="w", encoding="utf8")
-    print(f"Auto Exploiter log is saved in logs/{name}.log")
+    filehandler = logging.FileHandler(f"{RUN_LOG_PATH}/{name}.log", mode="w", encoding="utf8")
+    print(f"Auto Exploiter log is saved in {RUN_LOG_PATH}/{name}.log")
     filehandler.setFormatter(
         logging.Formatter(
             "%(asctime)s - %(levelname)s - %(filename)s:%(funcName)s:%(lineno)d - %(message)s"
