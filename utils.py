@@ -51,7 +51,9 @@ def get_logger(name: str):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
     logger.addHandler(logging.StreamHandler(sys.stdout))
-    filehandler = logging.FileHandler(f"{RUN_LOG_PATH}/{name}.log", mode="w", encoding="utf8")
+    filehandler = logging.FileHandler(
+        f"{RUN_LOG_PATH}/{name}.log", mode="w", encoding="utf8"
+    )
     print(f"Auto Exploiter log is saved in {RUN_LOG_PATH}/{name}.log")
     filehandler.setFormatter(
         logging.Formatter(
