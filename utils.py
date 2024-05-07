@@ -4,29 +4,22 @@ import logging
 import os
 import random
 import re
-import shutil
-import signal
 import string
 import subprocess
 import sys
-import tempfile
 import time
-from io import TextIOWrapper
 
 from pcapng import FileScanner
 from pcapng.blocks import EnhancedPacket
 from pcapng.exceptions import TruncatedFile
 
 from wdissector import (
-    WD_DIR_RX,
     WD_DIR_TX,
     WD_MODE_FULL,
     Machine,
     WDPacketLabelGenerator,
-    packet_read_field_abbrev,
     wd_packet_dissect,
     wd_pkt_label,
-    wd_read_field_by_offset,
     wd_set_dissection_mode,
     wd_set_packet_direction,
 )
@@ -72,26 +65,6 @@ session_id = random_string(4)
 ae_logger = get_logger(f"ae_{human_current_date()}_{session_id}")
 
 
-class WDCrash(Exception):
-    pass
-
-
-class WDExploitTimeout(Exception):
-    pass
-
-
-class WDModemTimeout(Exception):
-    pass
-
-
-class WDExploitCompileError(Exception):
-    pass
-
-
-class WDGuruLogSeen(Exception):
-    pass
-
-
 def calc_bytes_sha256(b: bytes):
     hash_sha256 = hashlib.sha256()
     hash_sha256.update(b)
@@ -133,57 +106,6 @@ def pcap_pkt_reader(path: str):
             )
 
 
-def monitor_log(log_path, modem_timeout, exploit_timeout):
-    # 1. wait for modem to start until modem_timeout
-    # 2. after modem starts, wait until crash or exploit timeout
-    # TODO: optimize read logic, no need modem retry
-    # TODO: this is for ESP32 bluetooth only
-    def custom_readline(log_fd: TextIOWrapper):
-        line = log_fd.readline()
-        if "Error when loading or compiling C Modules" in line:
-            raise WDExploitCompileError
-        return line
-
-    with open(log_path, "r", encoding="utf8", errors="ignore") as log:
-        # Sometimes modem initiates slowly
-        # print("Starting modem...")
-        # start = time.time()
-        # modem_initialized = False
-        # while not modem_initialized:
-        #     if time.time() - start > modem_timeout:
-        #         raise WDModemTimeout
-
-        #     # Read log file line by line continuously, like tail -f but less instantaneously
-        #     line = custom_readline(log)
-        #     while line != "":
-        #         # when using Qualcomm: [ModemManager] Modem Initialized
-        #         # when using ADB: [ModemManager] Modem Configured
-        #         if '[ModemManager] Modem Initialized' in line or '[ModemManager] Modem Configured' in line:
-        #             modem_initialized = True
-        #             break
-        #         line = custom_readline(log)
-        # time.sleep(1)
-
-        # If the crash does not happen within some timeframe, the exploit can unlikely trigger a crash
-        print("Running exploit...")
-        start = time.time()
-        while True:
-            if time.time() - start > exploit_timeout:
-                raise WDExploitTimeout
-
-            line = custom_readline(log)
-            while line != "":
-                if "[Crash]" in line:
-                    # TODO: logic for ESP32 and cypress is different
-                    time.sleep(2)
-                    # raise WDCrash
-                    raise WDGuruLogSeen
-                if "Guru Meditation Error" in line:
-                    raise WDGuruLogSeen
-                line = custom_readline(log)
-            time.sleep(1)
-
-
 def clean_up_process(proc_name_keyword: str):
     # As the exploit is run with `script` command and the exploit script itself will spawn other
     # processes, there might be some orphan processes left. These processes might still take up
@@ -207,122 +129,6 @@ def clean_up_process(proc_name_keyword: str):
                 pass
     except:
         pass
-
-
-def run_exploit(
-    exploit_name: str,
-    modem_timeout: int,
-    exploit_timeout: int,
-    exploit_running_dir: str,
-    host_port: str,
-    target: str,
-    target_port: str,
-    target_hub_port: int,
-    log_path=None,
-):
-    # Run the specified exploit.
-
-    # The exploit is run with command `sudo bin/lte_fuzzer --exploit=some_exploit --EnableSimulator=false`
-    # by spawning a new process using `subprocess`.
-
-    # Note:
-    #   It is not trivial or easy to get the output of the command as there is no existing IPC method.
-    #   Python needs to get the output of the command, ideally in real time, to check if the exploit
-    #   runs correctly or any crash happens. By using `subprocess.run` or `subprocess.check_output`,
-    #   Python cannot get the full output, possibly because some output is from another processes spawned
-    #   by the fuzzer command. The initial solution was to redirect all output to a file using `>` which
-    #   works well except that the output is only available in Python after process finishes or times out.
-    #   This issue is related to disk write buffer. To get the output in real time, we can utilize `script`
-    #   command with `--flush` parameter so that the log file is flushed on every write instead of being
-    #   buffered.
-
-    #   More about timeout in process invoking:
-    #   https://alexandra-zaharia.github.io/posts/kill-subprocess-and-its-children-on-timeout-python/
-
-    # save current directory so that it is able to switch back later
-    prev_dir = os.getcwd()
-    os.chdir(exploit_running_dir)
-    max_retry = 3
-    if "flooding" in exploit_name:
-        exploit_timeout = exploit_timeout + 60
-    for num_retried in range(max_retry):
-        # restart target device before running exploits
-        subprocess.run(
-            f"/home/user/wdissector/3rd-party/uhubctl/uhubctls -a cycle -p {target_hub_port}",
-            shell=True,
-            stdout=subprocess.PIPE,
-        )
-        time.sleep(2.5)
-        # clear_logcat() # TODO: this is for 5G only
-
-        try:
-            temp_file = tempfile.NamedTemporaryFile(delete=False)
-            temp_file.close()
-            # need to run the exploit in the same process group of `script` command, check https://unix.stackexchange.com/a/670123
-            """
-            1. `fc:f5:c4:26:fa:b6` ESP32
-            2. `24:0a:c4:61:1c:1a` ESP32
-            3. `20:73:5b:18:6c:f2` cypress device
-            """
-            cmd = f'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port {host_port} --target-port {target_port} --target {target} --exploit={exploit_name}" | script {temp_file.name} --flush'
-            ae_logger.info(f"Running command: '{cmd}'")
-            p = subprocess.Popen(cmd, start_new_session=True, shell=True)
-            monitor_log(temp_file.name, modem_timeout, exploit_timeout)
-        except WDCrash:
-            print("Crash found for exploit:", exploit_name)
-            # raise WDCrash, need to wait until guru log, see the next except
-        except WDGuruLogSeen:
-            """
-            # cSpell:disable
-            [2022-06-23 03:38:48.000314] Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0).
-            [2022-06-23 03:38:48.000362]
-            [2022-06-23 03:38:48.000373] Core  0 register dump:
-            [2022-06-23 03:38:48.000381] PC      : 0x40082dd2  PS      : 0x00060134  A0      : 0x800fd750  A1      : 0x3ffcc4f0
-            [2022-06-23 03:38:48.000389] A2      : 0x00000001  A3      : 0x00000000  A4      : 0x0000f2f2  A5      : 0x60008054
-            [2022-06-23 03:38:48.000396] A6      : 0x3ffbdc20  A7      : 0x60008050  A8      : 0x80082dcd  A9      : 0x3ffcc4d0
-            [2022-06-23 03:38:48.000404] A10     : 0x00000004  A11     : 0x00000000  A12     : 0x6000804c  A13     : 0xffffffff
-            [2022-06-23 03:38:48.000411] A14     : 0x00000000  A15     : 0xfffffffc  SAR     : 0x00000004  EXCCAUSE: 0x00000005
-            [2022-06-23 03:38:48.000418] EXCVADDR: 0x00000000  LBEG    : 0x40082d05  LEND    : 0x40082d0c  LCOUNT  : 0x00000000
-            # cSpell:enable
-            """
-            # wait until all logs are printed
-            time.sleep(2)
-            break
-        except WDModemTimeout:
-            print("Modem timeout")
-            num_retried += 1
-        except WDExploitTimeout:
-            print("Exploit timeout")
-            break
-        except KeyboardInterrupt:
-            print("Keyboard interrupt")
-            break
-        except WDExploitCompileError:
-            os.remove(
-                os.path.join(
-                    exploit_running_dir, f"modules/exploits/bluetooth/{exploit_name}.so"
-                )
-            )
-            os.remove(
-                os.path.join(
-                    exploit_running_dir, f"modules/exploits/bluetooth/{exploit_name}.o"
-                )
-            )
-            print("Compile error")
-            num_retried += 1
-        finally:
-            os.killpg(os.getpgid(p.pid), signal.SIGTERM)
-            clean_up_process(exploit_name)
-    else:
-        ae_logger.error(f"Exploit {exploit_name} fails to run after {max_retry} retries.")
-    os.chdir(prev_dir)
-    output = open(temp_file.name, "r", encoding="utf8", errors="ignore").read()
-    if log_path is not None:
-        os.makedirs(os.path.dirname(log_path), exist_ok=True)
-        shutil.copyfile(temp_file.name, log_path)
-    os.unlink(temp_file.name)  # TODO: why use temp file?
-
-    return output
 
 
 class WDissectorTool:
@@ -358,28 +164,6 @@ class WDissectorTool:
         # Enable FULL dissection mode if using wd_read_field_by_offset
         if enable_full_dissection:
             wd_set_dissection_mode(self.wd, WD_MODE_FULL)
-
-    def pkt_mutated_field(self, original_pkt, fuzzed_pkt):
-        # TODO: deprecated
-        """
-        Return the field name of fuzzed packet
-        """
-        result = []
-        for i in find_mutation_loc(original_pkt, fuzzed_pkt):
-            # print(i)
-            # bluetooth classic needs to used offset 4
-            p = original_pkt[4:]
-            wd_set_packet_direction(self.wd, WD_DIR_TX)
-            wd_packet_dissect(self.wd, p, len(p))
-
-            # +7 here is because find_mutation_loc will subtract 7 from real offset,
-            # Originally find_mutation_loc is for calculating mutation location used in
-            # exploit script, where the buffer is counter from location 7
-            result.append(
-                packet_read_field_abbrev(wd_read_field_by_offset(self.wd, i[0] + 7))
-            )
-
-        return result
 
     def pkt_state(self, pkt, pkt_decoding_offset):
         # TODO: detect packet direction, which is different for bluetooth and 5g
