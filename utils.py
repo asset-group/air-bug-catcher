@@ -139,9 +139,7 @@ class WDissectorTool:
             model_config = "/home/user/wdissector/configs/models/bt/sdp_rfcomm_query.json"
         elif protocol == "5g":
             state_machine_config = "/home/user/wdissector/configs/5gnr_gnb_config.json"
-            model_config = (
-                "/home/user/wdissector/configs/models/5gnr_gnb/lte-softmodem.json"
-            )
+            model_config = "/home/user/wdissector/configs/models/5gnr_gnb/nr-softmodem.json"
 
         self.StateMachine = Machine()
         # Load State Mapper configuration
