@@ -37,7 +37,7 @@ class FuzzedPkt:
     state: str
     filter: str | None
     type: Literal["mutation", "duplication"]
-    fuzz_info: list[str] | None
+    fuzz_info: dict | None
     prev_pkt_bytes: bytes
 
 
