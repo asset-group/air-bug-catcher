@@ -65,9 +65,17 @@ class OnePlus5GFuzzLog(FuzzLog):
                 # Get from run log
                 with open(run_log_path, "r", encoding="utf8", errors="ignore") as f:
                     for line in f:
-                        res = re.findall(r"\[Crash\] Crash detected at state (.*)", line)
+                        res = re.findall(
+                            r"\[Crash\] (Crash detected at state|Device Removed at state) (.*)",
+                            line,
+                        )
                         if len(res) > 0:
-                            crash_id = res[0].replace("", "").replace("[00m", "")
+                            crash_id = (
+                                res[0][1]
+                                .replace("", "")
+                                .replace("[00m", "")
+                                .replace('"', "")
+                            )
             else:
                 # Get from trace log
                 crash_ids = self.crash_ids_from_trace_log(trace_log_path)
