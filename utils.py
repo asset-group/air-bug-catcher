@@ -142,6 +142,9 @@ class WDissectorTool:
         elif protocol == "5g":
             state_machine_config = "/home/user/wdissector/configs/5gnr_gnb_config.json"
             model_config = "/home/user/wdissector/configs/models/5gnr_gnb/nr-softmodem.json"
+        elif protocol == "wifi":
+            state_machine_config = "/home/user/wdissector/configs/wifi_ap_config.json"
+            model_config = "/home/user/wdissector/configs/models/wifi_ap/wpa2_eap.json"
 
         self.StateMachine = Machine()
         # Load State Mapper configuration
@@ -210,6 +213,8 @@ def find_mutation_loc(
         offset = -4 - 7
     elif protocol == "5g":
         offset = 0
+    elif protocol == "wifi":
+        offset = -9
     else:
         ae_logger.error("Unknown protocol")
 
@@ -248,6 +253,10 @@ def split_crash_id(crash_id: str):
         backtrace1 = splitted[1]
         if len(splitted) == 3:
             backtrace2 = splitted[2]
+
+    backtrace1 = re.sub(r"[^: ]0x", " 0x", backtrace1)
+    if backtrace2 is not None:
+        backtrace2 = re.sub(r"[^: ]0x", " 0x", backtrace2)
 
     return assert_error, guru_error, backtrace1, backtrace2
 
