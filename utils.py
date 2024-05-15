@@ -7,7 +7,6 @@ import re
 import string
 import subprocess
 import sys
-import time
 
 from pcapng import FileScanner
 from pcapng.blocks import EnhancedPacket
@@ -400,9 +399,10 @@ def extract_ts(s: str) -> float:
     if len(timestamp_re.findall(s)) == 0:
         return 0
     else:
-        return time.mktime(
-            time.strptime(timestamp_re.findall(s)[0], "[%Y-%m-%d %H:%M:%S.%f]")
+        dt = datetime.datetime.strptime(
+            timestamp_re.findall(s)[0], "[%Y-%m-%d %H:%M:%S.%f]"
         )
+        return dt.timestamp()
 
 
 if __name__ == "__main__":
