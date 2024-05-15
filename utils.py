@@ -261,7 +261,7 @@ def split_crash_id(crash_id: str):
 
 
 def split_backtrace(bt: str):
-    splitted = bt.lstrip("Backtrace:").split(" ")
+    splitted = bt.lstrip("Backtrace: ").lstrip("Backtrace:").split(" ")
     first_hex = []
     second_hex = []
     for i in splitted:
