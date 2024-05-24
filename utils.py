@@ -7,7 +7,6 @@ import re
 import string
 import subprocess
 import sys
-import time
 
 from pcapng import FileScanner
 from pcapng.blocks import EnhancedPacket
@@ -142,6 +141,9 @@ class WDissectorTool:
         elif protocol == "5g":
             state_machine_config = "/home/user/wdissector/configs/5gnr_gnb_config.json"
             model_config = "/home/user/wdissector/configs/models/5gnr_gnb/nr-softmodem.json"
+        elif protocol == "wifi":
+            state_machine_config = "/home/user/wdissector/configs/wifi_ap_config.json"
+            model_config = "/home/user/wdissector/configs/models/wifi_ap/wpa2_eap.json"
 
         self.StateMachine = Machine()
         # Load State Mapper configuration
@@ -210,6 +212,8 @@ def find_mutation_loc(
         offset = -4 - 7
     elif protocol == "5g":
         offset = 0
+    elif protocol == "wifi":
+        offset = -9
     else:
         ae_logger.error("Unknown protocol")
 
@@ -249,11 +253,15 @@ def split_crash_id(crash_id: str):
         if len(splitted) == 3:
             backtrace2 = splitted[2]
 
+    backtrace1 = re.sub(r"[^: ]0x", " 0x", backtrace1)
+    if backtrace2 is not None:
+        backtrace2 = re.sub(r"[^: ]0x", " 0x", backtrace2)
+
     return assert_error, guru_error, backtrace1, backtrace2
 
 
 def split_backtrace(bt: str):
-    splitted = bt.lstrip("Backtrace:").split(" ")
+    splitted = bt.lstrip("Backtrace: ").lstrip("Backtrace:").split(" ")
     first_hex = []
     second_hex = []
     for i in splitted:
@@ -391,9 +399,10 @@ def extract_ts(s: str) -> float:
     if len(timestamp_re.findall(s)) == 0:
         return 0
     else:
-        return time.mktime(
-            time.strptime(timestamp_re.findall(s)[0], "[%Y-%m-%d %H:%M:%S.%f]")
+        dt = datetime.datetime.strptime(
+            timestamp_re.findall(s)[0], "[%Y-%m-%d %H:%M:%S.%f]"
         )
+        return dt.timestamp()
 
 
 if __name__ == "__main__":

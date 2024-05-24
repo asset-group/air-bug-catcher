@@ -116,7 +116,7 @@ class ESP32BtFuzzLog(FuzzLog):
         identifiers = []
         identifier = ""
         timestamp_re = re.compile(r"^\[.*?\]")
-        assert_re = re.compile(r".*(ASSERT.*?line \d+).*?\n")
+        assert_re = re.compile(r".*((ASSERT|assert failed).*?(line |:)\d+).*?\n")
 
         # TODO: store ELF file hash somewhere
         guru_seen_count = 0
@@ -129,7 +129,7 @@ class ESP32BtFuzzLog(FuzzLog):
             for line_idx, line in enumerate(f):
                 # find all "Guru Meditation Error" and "Backtrace" lines, then group the lines with timestamp
                 # falling within 1 seconds slot into one crash identifier
-                if "ASSERT" in line:
+                if "ASSERT" in line or "assert failed" in line:
                     assert_line = (line_idx, line)
                     meaningless_line_count = 0
                 elif line == "\n" or "Send flooding packet now" in line:
@@ -160,7 +160,7 @@ class ESP32BtFuzzLog(FuzzLog):
                             if is_assert_line_close:
                                 identifiers.append(
                                     [
-                                        assert_re.findall(assert_line[1])[0]
+                                        assert_re.findall(assert_line[1])[0][0]
                                         + "|"
                                         + identifier,
                                         timestamp,
