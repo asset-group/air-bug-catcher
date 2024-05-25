@@ -185,7 +185,6 @@ class WDissectorTool:
         return self.StateMachine.GetCurrentStateName()
 
     def label_pkt(self, pkt: bytes, direction=WD_DIR_TX, pkt_decoding_offset=4):
-        # from Matheus
         # Convert to raw and then to bytearray
         # bluetooth classic needs offset 4
         # TODO: pkt_decoding_offset should be set from capture type
