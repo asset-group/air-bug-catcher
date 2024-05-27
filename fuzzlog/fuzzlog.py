@@ -5,8 +5,8 @@ from typing import Callable, Literal
 
 from utils import ae_logger, calc_bytes_sha256
 
-BoardType = Literal["esp32", "cypress", "nordic", "oneplus"]
-ProtocolType = Literal["5g", "bt", "ble", "wifi"]
+BoardType = Literal["esp32", "cypress", "oneplus"]
+ProtocolType = Literal["5g", "bt", "wifi"]
 
 
 class Crash:
