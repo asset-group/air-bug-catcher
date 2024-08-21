@@ -158,14 +158,16 @@ class ESP32BtFuzzLog(FuzzLog):
                                 extract_ts(line) - extract_ts(assert_line[1]) < 2
                             )
                             if is_assert_line_close:
-                                identifiers.append(
-                                    [
-                                        assert_re.findall(assert_line[1])[0][0]
-                                        + "|"
-                                        + identifier,
-                                        timestamp,
-                                    ]
-                                )
+                                re_res = assert_re.findall(assert_line[1])
+                                if len(re_res) > 0:
+                                    identifiers.append(
+                                        [
+                                            re_res[0][0] + "|" + identifier,
+                                            timestamp,
+                                        ]
+                                    )
+                                else:
+                                    identifiers.append(["|" + identifier, timestamp])
                                 assert_line = None
                             else:
                                 identifiers.append(["|" + identifier, timestamp])
