@@ -1,0 +1,745 @@
+2024-08-04 04:30:31,952 - INFO - run_baseline_scripts.py:<module>:7 - Start baseline exploiter
+2024-08-04 04:30:31,952 - INFO - esp32_bt.py:discover_crashes:218 - Discovering crashes...
+2024-08-04 04:30:35,598 - INFO - fuzzlog.py:group_crashes:101 - Total 190 crashes, 29 are unique.
+2024-08-04 04:30:35,598 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:30:43,490 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_15704_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_15704_crash.log --flush'
+2024-08-04 04:31:44,570 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:31:44,573 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_15704_crash: crash_ids: 
+2024-08-04 04:31:44,573 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:31:52,470 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_127275_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_127275_crash.log --flush'
+2024-08-04 04:32:53,549 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:32:53,551 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_127275_crash: crash_ids: 
+2024-08-04 04:32:53,551 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:33:01,467 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_90070_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_90070_timeout.log --flush'
+2024-08-04 04:35:02,575 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:35:02,577 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_90070_timeout: crash_ids: 
+2024-08-04 04:35:02,577 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:35:10,470 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_144406_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_144406_crash.log --flush'
+2024-08-04 04:36:11,542 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:36:11,545 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_144406_crash: crash_ids: 
+2024-08-04 04:36:11,545 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:36:19,425 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_54003_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_54003_crash.log --flush'
+2024-08-04 04:37:20,485 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:37:20,488 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_54003_crash: crash_ids: 
+2024-08-04 04:37:20,488 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:37:28,397 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_155976_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_155976_crash.log --flush'
+2024-08-04 04:38:29,456 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:38:29,459 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_155976_crash: crash_ids: 
+2024-08-04 04:38:29,459 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:38:37,339 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_62585_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_62585_timeout.log --flush'
+2024-08-04 04:40:38,468 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:40:38,471 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_62585_timeout: crash_ids: 
+2024-08-04 04:40:38,471 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:40:46,370 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_81051_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_81051_crash.log --flush'
+2024-08-04 04:41:47,444 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:41:47,447 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_81051_crash: crash_ids: 
+2024-08-04 04:41:47,447 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:41:55,351 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_101999_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_101999_timeout.log --flush'
+2024-08-04 04:43:56,486 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:43:56,490 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_101999_timeout: crash_ids: 
+2024-08-04 04:43:56,490 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:44:04,395 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_77451_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_77451_crash.log --flush'
+2024-08-04 04:45:05,462 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:45:05,465 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_77451_crash: crash_ids: 
+2024-08-04 04:45:05,465 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:45:13,358 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_10487_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_10487_crash.log --flush'
+2024-08-04 04:46:14,439 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:46:14,442 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_10487_crash: crash_ids: 
+2024-08-04 04:46:14,442 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:46:22,346 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_135416_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_135416_timeout.log --flush'
+2024-08-04 04:47:35,485 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_135416_timeout: crash_ids: not_found
+2024-08-04 04:47:35,485 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:47:43,398 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_37131_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_37131_crash.log --flush'
+2024-08-04 04:48:44,462 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:48:44,465 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_37131_crash: crash_ids: 
+2024-08-04 04:48:44,465 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:48:52,359 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_97940_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_97940_crash.log --flush'
+2024-08-04 04:49:53,422 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:49:53,424 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_97940_crash: crash_ids: 
+2024-08-04 04:49:53,424 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:50:01,315 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_52634_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_52634_crash.log --flush'
+2024-08-04 04:51:02,359 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:51:02,361 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_52634_crash: crash_ids: 
+2024-08-04 04:51:02,362 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:51:10,250 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_65061_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_65061_crash.log --flush'
+2024-08-04 04:52:11,291 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:52:11,293 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_65061_crash: crash_ids: 
+2024-08-04 04:52:11,293 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:52:19,186 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_159713_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_159713_crash.log --flush'
+2024-08-04 04:53:20,251 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:53:20,253 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_159713_crash: crash_ids: 
+2024-08-04 04:53:20,254 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:53:28,173 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_80880_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_80880_timeout.log --flush'
+2024-08-04 04:55:29,216 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:55:29,218 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_80880_timeout: crash_ids: 
+2024-08-04 04:55:29,218 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:55:37,123 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_71359_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_71359_crash.log --flush'
+2024-08-04 04:56:38,200 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:56:38,203 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_71359_crash: crash_ids: 
+2024-08-04 04:56:38,203 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:56:46,109 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_16465_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_16465_crash.log --flush'
+2024-08-04 04:57:47,152 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:57:47,154 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_16465_crash: crash_ids: 
+2024-08-04 04:57:47,154 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 04:57:55,058 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_59765_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_59765_timeout.log --flush'
+2024-08-04 04:59:56,214 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 04:59:56,217 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_59765_timeout: crash_ids: 
+2024-08-04 04:59:56,217 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:00:04,122 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_43384_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_43384_crash.log --flush'
+2024-08-04 05:01:05,193 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:01:05,196 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_43384_crash: crash_ids: 
+2024-08-04 05:01:05,196 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:01:13,097 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_148027_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_148027_crash.log --flush'
+2024-08-04 05:02:14,169 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:02:14,172 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_148027_crash: crash_ids: 
+2024-08-04 05:02:14,172 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:02:22,065 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_130001_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_130001_crash.log --flush'
+2024-08-04 05:03:23,110 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:03:23,113 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_130001_crash: crash_ids: 
+2024-08-04 05:03:23,113 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:03:31,010 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_126421_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_126421_crash.log --flush'
+2024-08-04 05:04:32,083 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:04:32,085 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_126421_crash: crash_ids: 
+2024-08-04 05:04:32,086 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:04:39,902 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_139919_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_139919_crash.log --flush'
+2024-08-04 05:05:17,632 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_139919_crash: crash_ids: TX / Baseband / FHS
+2024-08-04 05:05:17,632 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:05:25,534 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_18074_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_18074_crash.log --flush'
+2024-08-04 05:06:26,583 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:06:26,586 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_18074_crash: crash_ids: 
+2024-08-04 05:06:26,586 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:06:34,478 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_124613_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_124613_crash.log --flush'
+2024-08-04 05:07:35,526 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:07:35,528 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_124613_crash: crash_ids: 
+2024-08-04 05:07:35,528 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:07:43,442 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_105569_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_105569_timeout.log --flush'
+2024-08-04 05:09:44,575 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:09:44,578 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_105569_timeout: crash_ids: 
+2024-08-04 05:09:44,578 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:09:52,479 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_33257_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_33257_crash.log --flush'
+2024-08-04 05:10:53,540 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:10:53,544 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_33257_crash: crash_ids: 
+2024-08-04 05:10:53,544 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:11:01,438 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_36486_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_36486_crash.log --flush'
+2024-08-04 05:12:02,514 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:12:02,517 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_36486_crash: crash_ids: 
+2024-08-04 05:12:02,517 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:12:10,422 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_51867_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_51867_crash.log --flush'
+2024-08-04 05:13:11,491 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:13:11,493 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_51867_crash: crash_ids: 
+2024-08-04 05:13:11,493 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:13:19,382 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_120966_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_120966_crash.log --flush'
+2024-08-04 05:14:20,458 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:14:20,461 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_120966_crash: crash_ids: 
+2024-08-04 05:14:20,461 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:14:28,358 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_133794_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_133794_crash.log --flush'
+2024-08-04 05:15:29,404 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:15:29,406 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_133794_crash: crash_ids: 
+2024-08-04 05:15:29,406 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:15:37,299 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_54035_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_54035_crash.log --flush'
+2024-08-04 05:16:38,362 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:16:38,365 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_54035_crash: crash_ids: 
+2024-08-04 05:16:38,365 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:16:46,274 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_73379_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_73379_crash.log --flush'
+2024-08-04 05:17:24,001 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_73379_crash: crash_ids: TX / Baseband / FHS
+2024-08-04 05:17:24,001 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:17:31,897 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_106285_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_106285_crash.log --flush'
+2024-08-04 05:18:32,959 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:18:32,962 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_106285_crash: crash_ids: 
+2024-08-04 05:18:32,962 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:18:40,862 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_47841_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_47841_crash.log --flush'
+2024-08-04 05:19:41,908 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:19:41,910 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_47841_crash: crash_ids: 
+2024-08-04 05:19:41,910 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:19:49,810 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_27537_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_27537_crash.log --flush'
+2024-08-04 05:20:50,863 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:20:50,866 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_27537_crash: crash_ids: 
+2024-08-04 05:20:50,866 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:20:58,757 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_99557_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_99557_crash.log --flush'
+2024-08-04 05:21:59,815 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:21:59,817 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_99557_crash: crash_ids: 
+2024-08-04 05:21:59,817 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:22:07,730 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_170759_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_170759_crash.log --flush'
+2024-08-04 05:23:08,810 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:23:08,813 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_170759_crash: crash_ids: 
+2024-08-04 05:23:08,813 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:23:16,705 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_79089_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_79089_crash.log --flush'
+2024-08-04 05:24:17,764 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:24:17,767 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_79089_crash: crash_ids: 
+2024-08-04 05:24:17,767 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:24:25,674 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_159532_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_159532_timeout.log --flush'
+2024-08-04 05:26:26,780 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:26:26,783 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_159532_timeout: crash_ids: 
+2024-08-04 05:26:26,783 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:26:34,691 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_71637_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_71637_crash.log --flush'
+2024-08-04 05:27:35,726 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:27:35,728 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_71637_crash: crash_ids: 
+2024-08-04 05:27:35,728 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:27:43,651 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_118313_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_118313_crash.log --flush'
+2024-08-04 05:28:44,685 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:28:44,688 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_118313_crash: crash_ids: 
+2024-08-04 05:28:44,688 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:28:52,586 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_25311_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_25311_timeout.log --flush'
+2024-08-04 05:30:53,732 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:30:53,735 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_25311_timeout: crash_ids: 
+2024-08-04 05:30:53,735 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:31:01,641 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_115696_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_115696_crash.log --flush'
+2024-08-04 05:32:02,668 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:32:02,670 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_115696_crash: crash_ids: 
+2024-08-04 05:32:02,670 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:32:10,562 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_127801_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_127801_crash.log --flush'
+2024-08-04 05:33:11,639 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:33:11,642 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_127801_crash: crash_ids: 
+2024-08-04 05:33:11,642 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:33:19,541 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_77267_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_77267_timeout.log --flush'
+2024-08-04 05:35:20,698 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:35:20,701 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_77267_timeout: crash_ids: 
+2024-08-04 05:35:20,701 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:35:28,606 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_64551_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_64551_crash.log --flush'
+2024-08-04 05:36:29,654 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:36:29,657 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_64551_crash: crash_ids: 
+2024-08-04 05:36:29,657 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:36:37,562 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_152556_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_152556_timeout.log --flush'
+2024-08-04 05:38:38,692 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:38:38,695 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_152556_timeout: crash_ids: 
+2024-08-04 05:38:38,695 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:38:46,594 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_142908_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_142908_crash.log --flush'
+2024-08-04 05:39:47,650 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:39:47,652 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_142908_crash: crash_ids: 
+2024-08-04 05:39:47,652 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:39:55,557 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_67273_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_67273_crash.log --flush'
+2024-08-04 05:40:56,607 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:40:56,609 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_67273_crash: crash_ids: 
+2024-08-04 05:40:56,609 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:41:04,502 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_163204_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_163204_crash.log --flush'
+2024-08-04 05:42:05,525 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:42:05,527 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_163204_crash: crash_ids: 
+2024-08-04 05:42:05,527 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:42:13,414 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_95261_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_95261_crash.log --flush'
+2024-08-04 05:43:14,481 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:43:14,484 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_95261_crash: crash_ids: 
+2024-08-04 05:43:14,484 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:43:22,386 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_104008_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_104008_crash.log --flush'
+2024-08-04 05:44:23,463 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:44:23,466 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_104008_crash: crash_ids: 
+2024-08-04 05:44:23,466 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:44:31,366 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_27341_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_27341_timeout.log --flush'
+2024-08-04 05:46:32,512 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:46:32,514 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_27341_timeout: crash_ids: 
+2024-08-04 05:46:32,514 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:46:40,422 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_84515_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_84515_crash.log --flush'
+2024-08-04 05:47:41,467 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:47:41,470 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_84515_crash: crash_ids: 
+2024-08-04 05:47:41,470 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:47:49,372 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_153612_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_153612_crash.log --flush'
+2024-08-04 05:48:50,390 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:48:50,392 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_153612_crash: crash_ids: 
+2024-08-04 05:48:50,392 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:48:58,302 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_102200_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_102200_crash.log --flush'
+2024-08-04 05:49:59,359 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:49:59,362 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_102200_crash: crash_ids: 
+2024-08-04 05:49:59,362 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:50:07,274 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_57266_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_57266_crash.log --flush'
+2024-08-04 05:51:08,356 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:51:08,358 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_57266_crash: crash_ids: 
+2024-08-04 05:51:08,358 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:51:16,270 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_155189_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_155189_crash.log --flush'
+2024-08-04 05:52:17,287 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:52:17,289 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_155189_crash: crash_ids: 
+2024-08-04 05:52:17,289 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:52:25,194 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_104289_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_104289_crash.log --flush'
+2024-08-04 05:53:12,840 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_104289_crash: crash_ids: TX / LMP / LMP_accepted_ext
+2024-08-04 05:53:12,840 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:53:20,734 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_154836_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_154836_crash.log --flush'
+2024-08-04 05:54:21,805 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:54:21,808 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_154836_crash: crash_ids: 
+2024-08-04 05:54:21,808 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:54:29,705 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_83856_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_83856_crash.log --flush'
+2024-08-04 05:55:30,773 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:55:30,775 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_83856_crash: crash_ids: 
+2024-08-04 05:55:30,776 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:55:38,687 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_24025_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_24025_crash.log --flush'
+2024-08-04 05:56:39,714 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:56:39,716 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_24025_crash: crash_ids: 
+2024-08-04 05:56:39,716 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:56:47,614 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_129255_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_129255_timeout.log --flush'
+2024-08-04 05:58:48,729 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:58:48,732 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_129255_timeout: crash_ids: 
+2024-08-04 05:58:48,732 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 05:58:56,635 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_157551_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_157551_crash.log --flush'
+2024-08-04 05:59:57,686 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 05:59:57,688 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_157551_crash: crash_ids: 
+2024-08-04 05:59:57,688 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:00:05,582 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_162324_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_162324_crash.log --flush'
+2024-08-04 06:01:06,634 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:01:06,637 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_162324_crash: crash_ids: 
+2024-08-04 06:01:06,637 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:01:14,531 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_82327_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_82327_timeout.log --flush'
+2024-08-04 06:02:18,987 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_82327_timeout: crash_ids: not_found
+2024-08-04 06:02:18,987 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:02:26,891 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_46364_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_46364_crash.log --flush'
+2024-08-04 06:03:27,931 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:03:27,933 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_46364_crash: crash_ids: 
+2024-08-04 06:03:27,933 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:03:35,789 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_149496_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_149496_timeout.log --flush'
+2024-08-04 06:05:36,904 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:05:36,907 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_149496_timeout: crash_ids: 
+2024-08-04 06:05:36,907 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:05:44,797 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_46176_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_46176_timeout.log --flush'
+2024-08-04 06:06:42,041 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_46176_timeout: crash_ids: not_found
+2024-08-04 06:06:42,041 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:06:49,935 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_31893_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_31893_crash.log --flush'
+2024-08-04 06:07:51,013 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:07:51,016 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_31893_crash: crash_ids: 
+2024-08-04 06:07:51,016 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:07:58,910 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_138332_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_138332_crash.log --flush'
+2024-08-04 06:08:59,955 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:08:59,958 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_138332_crash: crash_ids: 
+2024-08-04 06:08:59,958 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:09:07,857 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_114492_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_114492_crash.log --flush'
+2024-08-04 06:10:08,931 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:10:08,934 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_114492_crash: crash_ids: 
+2024-08-04 06:10:08,934 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:10:16,850 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_164938_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_164938_timeout.log --flush'
+2024-08-04 06:12:17,946 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:12:17,949 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_164938_timeout: crash_ids: 
+2024-08-04 06:12:17,949 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:12:25,851 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_23823_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_23823_timeout.log --flush'
+2024-08-04 06:14:26,936 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:14:26,938 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_23823_timeout: crash_ids: 
+2024-08-04 06:14:26,938 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:14:34,842 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_124429_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_124429_timeout.log --flush'
+2024-08-04 06:16:35,995 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:16:35,997 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_124429_timeout: crash_ids: 
+2024-08-04 06:16:35,997 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:16:43,907 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_149691_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_149691_crash.log --flush'
+2024-08-04 06:17:44,983 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:17:44,986 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_149691_crash: crash_ids: 
+2024-08-04 06:17:44,986 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:17:52,885 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_126223_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_126223_timeout.log --flush'
+2024-08-04 06:19:07,845 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_126223_timeout: crash_ids: not_found
+2024-08-04 06:19:07,845 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:19:15,746 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_115204_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_115204_crash.log --flush'
+2024-08-04 06:20:16,769 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:20:16,771 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_115204_crash: crash_ids: 
+2024-08-04 06:20:16,771 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:20:24,666 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_108996_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_108996_timeout.log --flush'
+2024-08-04 06:22:25,798 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:22:25,801 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_108996_timeout: crash_ids: 
+2024-08-04 06:22:25,801 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:22:33,697 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_15501_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_15501_timeout.log --flush'
+2024-08-04 06:24:34,850 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:24:34,853 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_15501_timeout: crash_ids: 
+2024-08-04 06:24:34,854 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:24:42,754 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_135640_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_135640_crash.log --flush'
+2024-08-04 06:25:43,827 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:25:43,830 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_135640_crash: crash_ids: 
+2024-08-04 06:25:43,830 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:25:51,731 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_152756_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_152756_crash.log --flush'
+2024-08-04 06:26:52,806 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:26:52,809 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_152756_crash: crash_ids: 
+2024-08-04 06:26:52,809 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:27:00,727 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_90250_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_90250_crash.log --flush'
+2024-08-04 06:28:01,806 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:28:01,809 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_90250_crash: crash_ids: 
+2024-08-04 06:28:01,809 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:28:09,709 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_71169_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_71169_timeout.log --flush'
+2024-08-04 06:30:10,803 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:30:10,805 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_71169_timeout: crash_ids: 
+2024-08-04 06:30:10,805 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:30:18,702 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_140220_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_140220_crash.log --flush'
+2024-08-04 06:31:09,340 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_140220_crash: crash_ids: TX / LMP / LMP_auto_rate
+2024-08-04 06:31:09,341 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:31:17,222 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_19955_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_19955_crash.log --flush'
+2024-08-04 06:32:18,272 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:32:18,274 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_19955_crash: crash_ids: 
+2024-08-04 06:32:18,274 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:32:26,175 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_69630_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_69630_crash.log --flush'
+2024-08-04 06:33:27,243 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:33:27,246 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_69630_crash: crash_ids: 
+2024-08-04 06:33:27,246 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:33:35,146 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_56086_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_56086_crash.log --flush'
+2024-08-04 06:34:36,163 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:34:36,165 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_56086_crash: crash_ids: 
+2024-08-04 06:34:36,165 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:34:44,059 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_62776_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_62776_crash.log --flush'
+2024-08-04 06:35:45,107 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:35:45,109 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_62776_crash: crash_ids: 
+2024-08-04 06:35:45,109 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:35:53,023 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_153254_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_153254_crash.log --flush'
+2024-08-04 06:36:54,086 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:36:54,089 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_153254_crash: crash_ids: 
+2024-08-04 06:36:54,089 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:37:01,938 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_108090_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_108090_crash.log --flush'
+2024-08-04 06:38:02,971 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:38:02,973 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_108090_crash: crash_ids: 
+2024-08-04 06:38:02,973 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:38:10,886 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_34139_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_34139_crash.log --flush'
+2024-08-04 06:39:11,943 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:39:11,945 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_34139_crash: crash_ids: 
+2024-08-04 06:39:11,945 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:39:19,845 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_140535_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_140535_crash.log --flush'
+2024-08-04 06:40:20,898 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:40:20,900 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_140535_crash: crash_ids: 
+2024-08-04 06:40:20,900 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:40:28,814 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_21939_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_21939_crash.log --flush'
+2024-08-04 06:41:29,866 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:41:29,869 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_21939_crash: crash_ids: 
+2024-08-04 06:41:29,869 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:41:37,769 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_44694_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_44694_crash.log --flush'
+2024-08-04 06:42:38,826 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:42:38,830 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_44694_crash: crash_ids: 
+2024-08-04 06:42:38,830 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:42:46,733 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_147503_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_147503_crash.log --flush'
+2024-08-04 06:43:47,807 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:43:47,810 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_147503_crash: crash_ids: 
+2024-08-04 06:43:47,810 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:43:55,699 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_43672_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_43672_crash.log --flush'
+2024-08-04 06:44:56,775 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:44:56,778 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_43672_crash: crash_ids: 
+2024-08-04 06:44:56,778 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:45:04,675 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_132178_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_132178_crash.log --flush'
+2024-08-04 06:45:43,004 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_132178_crash: crash_ids: TX / Baseband / FHS
+2024-08-04 06:45:43,004 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:45:50,898 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_174808_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_174808_timeout.log --flush'
+2024-08-04 06:47:52,054 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:47:52,057 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_174808_timeout: crash_ids: 
+2024-08-04 06:47:52,057 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:47:59,962 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_52318_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_52318_crash.log --flush'
+2024-08-04 06:48:36,476 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_52318_crash: crash_ids: TX / Baseband / FHS
+2024-08-04 06:48:36,476 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:48:44,374 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_129470_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_129470_crash.log --flush'
+2024-08-04 06:49:45,456 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:49:45,459 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_129470_crash: crash_ids: 
+2024-08-04 06:49:45,459 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:49:53,358 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_51387_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_51387_timeout.log --flush'
+2024-08-04 06:50:41,278 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_51387_timeout: crash_ids: not_found
+2024-08-04 06:50:41,278 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:50:49,175 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_78502_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_78502_crash.log --flush'
+2024-08-04 06:51:50,247 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:51:50,250 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_78502_crash: crash_ids: 
+2024-08-04 06:51:50,250 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:51:58,154 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_147316_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_147316_timeout.log --flush'
+2024-08-04 06:53:59,195 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:53:59,197 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_147316_timeout: crash_ids: 
+2024-08-04 06:53:59,197 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:54:07,056 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_54686_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_54686_crash.log --flush'
+2024-08-04 06:55:08,117 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:55:08,120 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_54686_crash: crash_ids: 
+2024-08-04 06:55:08,120 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:55:16,018 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_68940_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_68940_timeout.log --flush'
+2024-08-04 06:57:17,185 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:57:17,188 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_68940_timeout: crash_ids: 
+2024-08-04 06:57:17,188 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:57:25,095 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_53331_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_53331_timeout.log --flush'
+2024-08-04 06:58:22,030 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_53331_timeout: crash_ids: not_found
+2024-08-04 06:58:22,030 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:58:29,935 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_37407_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_37407_crash.log --flush'
+2024-08-04 06:59:30,996 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 06:59:30,999 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_37407_crash: crash_ids: 
+2024-08-04 06:59:30,999 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 06:59:38,906 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_39748_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_39748_crash.log --flush'
+2024-08-04 07:00:39,973 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:00:39,977 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_39748_crash: crash_ids: 
+2024-08-04 07:00:39,977 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:00:47,878 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_168398_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_168398_crash.log --flush'
+2024-08-04 07:01:48,915 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:01:48,917 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_168398_crash: crash_ids: 
+2024-08-04 07:01:48,917 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:01:56,813 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_96282_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_96282_crash.log --flush'
+2024-08-04 07:02:57,874 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:02:57,877 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_96282_crash: crash_ids: 
+2024-08-04 07:02:57,877 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:03:05,785 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_38895_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_38895_crash.log --flush'
+2024-08-04 07:04:06,845 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:04:06,848 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_38895_crash: crash_ids: 
+2024-08-04 07:04:06,848 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:04:14,745 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_172124_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_172124_timeout.log --flush'
+2024-08-04 07:05:14,075 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_172124_timeout: crash_ids: not_found
+2024-08-04 07:05:14,075 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:05:21,970 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_168219_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_168219_timeout.log --flush'
+2024-08-04 07:07:23,068 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:07:23,070 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_168219_timeout: crash_ids: 
+2024-08-04 07:07:23,070 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:07:30,970 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_37723_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_37723_crash.log --flush'
+2024-08-04 07:08:32,010 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:08:32,012 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_37723_crash: crash_ids: 
+2024-08-04 07:08:32,013 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:08:39,910 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_130424_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_130424_crash.log --flush'
+2024-08-04 07:09:40,967 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:09:40,970 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_130424_crash: crash_ids: 
+2024-08-04 07:09:40,970 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:09:48,866 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_145243_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_145243_crash.log --flush'
+2024-08-04 07:10:49,938 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:10:49,941 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_145243_crash: crash_ids: 
+2024-08-04 07:10:49,941 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:10:57,837 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_74717_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_74717_crash.log --flush'
+2024-08-04 07:11:58,859 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:11:58,861 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_74717_crash: crash_ids: 
+2024-08-04 07:11:58,861 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:12:06,762 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_143447_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_143447_crash.log --flush'
+2024-08-04 07:13:07,808 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:13:07,811 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_143447_crash: crash_ids: 
+2024-08-04 07:13:07,811 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:13:15,723 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_11825_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_11825_crash.log --flush'
+2024-08-04 07:14:16,771 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:14:16,774 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_11825_crash: crash_ids: 
+2024-08-04 07:14:16,774 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:14:24,667 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_67083_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_67083_timeout.log --flush'
+2024-08-04 07:16:25,828 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:16:25,830 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_67083_timeout: crash_ids: 
+2024-08-04 07:16:25,830 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:16:33,731 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_138734_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_138734_crash.log --flush'
+2024-08-04 07:17:34,790 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:17:34,793 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_138734_crash: crash_ids: 
+2024-08-04 07:17:34,793 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:17:42,693 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_12669_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_12669_crash.log --flush'
+2024-08-04 07:18:43,746 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:18:43,748 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_12669_crash: crash_ids: 
+2024-08-04 07:18:43,749 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:18:51,650 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_127122_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_127122_crash.log --flush'
+2024-08-04 07:19:52,696 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:19:52,698 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_127122_crash: crash_ids: 
+2024-08-04 07:19:52,698 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:20:00,598 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_166826_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_166826_crash.log --flush'
+2024-08-04 07:21:01,640 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:21:01,642 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_166826_crash: crash_ids: 
+2024-08-04 07:21:01,642 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:21:09,533 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_82511_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_82511_crash.log --flush'
+2024-08-04 07:22:10,598 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:22:10,601 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_82511_crash: crash_ids: 
+2024-08-04 07:22:10,601 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:22:18,366 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_132451_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_132451_crash.log --flush'
+2024-08-04 07:23:19,388 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:23:19,390 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_132451_crash: crash_ids: 
+2024-08-04 07:23:19,390 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:23:27,285 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_69117_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_69117_crash.log --flush'
+2024-08-04 07:24:28,343 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:24:28,346 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_69117_crash: crash_ids: 
+2024-08-04 07:24:28,346 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:24:36,246 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_3596_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_3596_crash.log --flush'
+2024-08-04 07:25:37,324 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:25:37,327 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_3596_crash: crash_ids: 
+2024-08-04 07:25:37,327 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:25:45,222 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_138155_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_138155_timeout.log --flush'
+2024-08-04 07:27:46,354 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:27:46,356 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_138155_timeout: crash_ids: 
+2024-08-04 07:27:46,356 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:27:54,258 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_165146_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_165146_crash.log --flush'
+2024-08-04 07:28:55,311 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:28:55,314 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_165146_crash: crash_ids: 
+2024-08-04 07:28:55,314 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:29:03,214 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_105768_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_105768_crash.log --flush'
+2024-08-04 07:30:04,266 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:30:04,269 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_105768_crash: crash_ids: 
+2024-08-04 07:30:04,270 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:30:12,170 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_47656_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_47656_timeout.log --flush'
+2024-08-04 07:32:13,282 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:32:13,285 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_47656_timeout: crash_ids: 
+2024-08-04 07:32:13,285 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:32:21,142 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_1655_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_1655_crash.log --flush'
+2024-08-04 07:33:22,177 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:33:22,179 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_1655_crash: crash_ids: 
+2024-08-04 07:33:22,179 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:33:30,073 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_6035_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_6035_crash.log --flush'
+2024-08-04 07:34:31,126 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:34:31,128 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_6035_crash: crash_ids: 
+2024-08-04 07:34:31,128 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:34:39,008 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_43169_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_43169_timeout.log --flush'
+2024-08-04 07:36:40,168 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:36:40,171 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_43169_timeout: crash_ids: 
+2024-08-04 07:36:40,171 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:36:48,063 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_130199_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_130199_crash.log --flush'
+2024-08-04 07:37:49,139 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:37:49,142 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_130199_crash: crash_ids: 
+2024-08-04 07:37:49,142 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:37:57,050 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_36275_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_36275_timeout.log --flush'
+2024-08-04 07:39:58,188 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:39:58,190 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_36275_timeout: crash_ids: 
+2024-08-04 07:39:58,190 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:40:06,087 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_57068_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_57068_timeout.log --flush'
+2024-08-04 07:42:07,172 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:42:07,174 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_57068_timeout: crash_ids: 
+2024-08-04 07:42:07,174 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:42:15,074 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_118116_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_118116_timeout.log --flush'
+2024-08-04 07:44:16,217 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:44:16,220 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_118116_timeout: crash_ids: 
+2024-08-04 07:44:16,220 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:44:24,130 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_131580_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_131580_crash.log --flush'
+2024-08-04 07:45:25,184 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:45:25,186 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_131580_crash: crash_ids: 
+2024-08-04 07:45:25,186 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:45:33,086 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_93600_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_93600_crash.log --flush'
+2024-08-04 07:46:34,160 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:46:34,162 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_93600_crash: crash_ids: 
+2024-08-04 07:46:34,162 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:46:42,036 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_64354_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_64354_timeout.log --flush'
+2024-08-04 07:47:41,660 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_64354_timeout: crash_ids: not_found
+2024-08-04 07:47:41,660 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:47:49,553 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_29398_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_29398_timeout.log --flush'
+2024-08-04 07:48:37,467 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_29398_timeout: crash_ids: not_found
+2024-08-04 07:48:37,468 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:48:45,355 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_32958_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_32958_crash.log --flush'
+2024-08-04 07:49:46,388 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:49:46,391 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_32958_crash: crash_ids: 
+2024-08-04 07:49:46,391 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:49:54,285 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_13209_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_13209_crash.log --flush'
+2024-08-04 07:50:55,338 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:50:55,340 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_13209_crash: crash_ids: 
+2024-08-04 07:50:55,340 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:51:03,247 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_54468_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_54468_crash.log --flush'
+2024-08-04 07:52:04,282 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:52:04,284 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_54468_crash: crash_ids: 
+2024-08-04 07:52:04,284 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:52:12,178 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_1450_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_1450_timeout.log --flush'
+2024-08-04 07:54:13,349 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:54:13,351 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_1450_timeout: crash_ids: 
+2024-08-04 07:54:13,351 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:54:21,267 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_59956_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_59956_crash.log --flush'
+2024-08-04 07:55:22,310 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:55:22,312 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_59956_crash: crash_ids: 
+2024-08-04 07:55:22,312 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:55:30,202 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_109221_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_109221_crash.log --flush'
+2024-08-04 07:56:31,229 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:56:31,232 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_109221_crash: crash_ids: 
+2024-08-04 07:56:31,232 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:56:39,132 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_103813_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_103813_timeout.log --flush'
+2024-08-04 07:58:40,259 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:58:40,262 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_103813_timeout: crash_ids: 
+2024-08-04 07:58:40,262 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:58:48,161 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_99364_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_99364_crash.log --flush'
+2024-08-04 07:59:49,183 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 07:59:49,185 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_99364_crash: crash_ids: 
+2024-08-04 07:59:49,185 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 07:59:57,082 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_32262_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_32262_crash.log --flush'
+2024-08-04 08:00:58,112 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:00:58,114 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_32262_crash: crash_ids: 
+2024-08-04 08:00:58,114 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:01:06,018 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_165512_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_165512_crash.log --flush'
+2024-08-04 08:02:07,092 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:02:07,095 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_165512_crash: crash_ids: 
+2024-08-04 08:02:07,095 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:02:14,993 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_119613_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_119613_crash.log --flush'
+2024-08-04 08:03:16,009 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:03:16,011 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_119613_crash: crash_ids: 
+2024-08-04 08:03:16,011 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:03:23,910 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_31706_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_31706_timeout.log --flush'
+2024-08-04 08:05:25,074 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:05:25,076 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_31706_timeout: crash_ids: 
+2024-08-04 08:05:25,076 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:05:32,932 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_7200_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_7200_crash.log --flush'
+2024-08-04 08:06:33,948 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:06:33,950 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_7200_crash: crash_ids: 
+2024-08-04 08:06:33,950 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:06:41,830 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_97559_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_97559_crash.log --flush'
+2024-08-04 08:07:42,846 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:07:42,848 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_97559_crash: crash_ids: 
+2024-08-04 08:07:42,848 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:07:50,753 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_86265_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_86265_crash.log --flush'
+2024-08-04 08:08:51,822 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:08:51,826 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_86265_crash: crash_ids: 
+2024-08-04 08:08:51,826 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:08:59,704 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_154451_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_154451_crash.log --flush'
+2024-08-04 08:10:00,783 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:10:00,786 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_154451_crash: crash_ids: 
+2024-08-04 08:10:00,786 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:10:08,686 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_29600_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_29600_crash.log --flush'
+2024-08-04 08:11:09,735 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:11:09,737 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_29600_crash: crash_ids: 
+2024-08-04 08:11:09,737 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:11:17,634 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_112246_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_112246_crash.log --flush'
+2024-08-04 08:12:18,692 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:12:18,694 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_112246_crash: crash_ids: 
+2024-08-04 08:12:18,695 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:12:26,594 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_5530_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_5530_crash.log --flush'
+2024-08-04 08:13:27,672 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:13:27,676 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_5530_crash: crash_ids: 
+2024-08-04 08:13:27,676 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:13:35,581 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_12939_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_12939_crash.log --flush'
+2024-08-04 08:14:36,648 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:14:36,651 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_12939_crash: crash_ids: 
+2024-08-04 08:14:36,651 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:14:44,559 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_53540_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_53540_crash.log --flush'
+2024-08-04 08:15:45,635 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:15:45,638 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_53540_crash: crash_ids: 
+2024-08-04 08:15:45,638 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:15:53,534 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_91715_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_91715_crash.log --flush'
+2024-08-04 08:16:49,852 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_91715_crash: crash_ids: RX / LMP / LMP_features_res_ext
+2024-08-04 08:16:49,853 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:16:57,758 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_21424_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_21424_timeout.log --flush'
+2024-08-04 08:18:58,805 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:18:58,807 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_21424_timeout: crash_ids: 
+2024-08-04 08:18:58,807 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:19:06,718 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_10309_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_10309_timeout.log --flush'
+2024-08-04 08:21:07,885 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:21:07,888 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_10309_timeout: crash_ids: 
+2024-08-04 08:21:07,888 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:21:15,770 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_122487_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_122487_crash.log --flush'
+2024-08-04 08:22:16,836 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:22:16,839 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_122487_crash: crash_ids: 
+2024-08-04 08:22:16,839 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:22:24,734 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_156285_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_156285_crash.log --flush'
+2024-08-04 08:23:25,802 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:23:25,804 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_156285_crash: crash_ids: 
+2024-08-04 08:23:25,804 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:23:33,667 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_172304_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_172304_crash.log --flush'
+2024-08-04 08:24:34,750 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:24:34,752 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_172304_crash: crash_ids: 
+2024-08-04 08:24:34,752 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:24:42,655 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_51590_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_51590_crash.log --flush'
+2024-08-04 08:25:43,730 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:25:43,733 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_51590_crash: crash_ids: 
+2024-08-04 08:25:43,733 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:25:51,645 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_61165_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_61165_crash.log --flush'
+2024-08-04 08:26:52,692 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:26:52,694 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_61165_crash: crash_ids: 
+2024-08-04 08:26:52,694 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:27:00,589 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_111379_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_111379_crash.log --flush'
+2024-08-04 08:28:01,647 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:28:01,650 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_111379_crash: crash_ids: 
+2024-08-04 08:28:01,650 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:28:09,568 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_139465_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_139465_crash.log --flush'
+2024-08-04 08:29:03,209 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_139465_crash: crash_ids: IDLE
+2024-08-04 08:29:03,210 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:29:11,101 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_11108_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_11108_crash.log --flush'
+2024-08-04 08:30:12,171 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:30:12,174 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_11108_crash: crash_ids: 
+2024-08-04 08:30:12,174 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:30:20,069 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_4886_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_4886_crash.log --flush'
+2024-08-04 08:31:21,142 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:31:21,145 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_4886_crash: crash_ids: 
+2024-08-04 08:31:21,145 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:31:29,037 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_86064_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_86064_timeout.log --flush'
+2024-08-04 08:33:30,192 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:33:30,195 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_86064_timeout: crash_ids: 
+2024-08-04 08:33:30,195 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:33:38,101 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_120768_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_120768_timeout.log --flush'
+2024-08-04 08:35:39,267 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:35:39,269 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_120768_timeout: crash_ids: 
+2024-08-04 08:35:39,269 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:35:47,178 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_42010_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_42010_crash.log --flush'
+2024-08-04 08:36:48,251 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:36:48,253 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_42010_crash: crash_ids: 
+2024-08-04 08:36:48,253 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:36:56,149 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_132638_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_132638_crash.log --flush'
+2024-08-04 08:37:57,204 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:37:57,207 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_132638_crash: crash_ids: 
+2024-08-04 08:37:57,207 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:38:05,119 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_21608_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_21608_crash.log --flush'
+2024-08-04 08:39:06,166 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:39:06,168 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_21608_crash: crash_ids: 
+2024-08-04 08:39:06,168 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:39:14,074 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_7410_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_7410_crash.log --flush'
+2024-08-04 08:40:15,135 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:40:15,138 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_7410_crash: crash_ids: 
+2024-08-04 08:40:15,138 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:40:23,038 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_170559_timeout" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_170559_timeout.log --flush'
+2024-08-04 08:41:19,987 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_170559_timeout: crash_ids: not_found
+2024-08-04 08:41:19,987 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:41:27,878 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_49232_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_49232_crash.log --flush'
+2024-08-04 08:42:28,921 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:42:28,923 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_49232_crash: crash_ids: 
+2024-08-04 08:42:28,923 - DEBUG - esp32_bt.py:run_exploit_once:63 - Trial 1/3
+2024-08-04 08:42:36,829 - INFO - esp32_bt.py:run_exploit_once:84 - Running command: 'echo "set +m && sudo bin/bt_fuzzer --no-gui --host-port /dev/ttyUSB2 --target-port /dev/ttyUSB0 --target fc:f5:c4:26:fa:b6 --exploit=baseline_exp_48446_crash" | script /home/user/wdissector/modules/auto-exploiter/logs/bt/baseline_exp_48446_crash.log --flush'
+2024-08-04 08:43:37,885 - INFO - esp32_bt.py:run_exploit_once:93 - Exploit timeout.
+2024-08-04 08:43:37,888 - INFO - run_baseline_scripts.py:<module>:44 - Baseline exploit baseline_exp_48446_crash: crash_ids: 

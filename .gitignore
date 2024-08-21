@@ -179,3 +179,6 @@ wdissector.py
 wdissector_wrap.cxx
 bin
 configs
+
+# Our experiment results
+!our-results/**
