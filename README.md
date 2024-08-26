@@ -80,7 +80,7 @@ from exploiter.esp32_bt import ESP32BtExploiter
 from fuzzlog.esp32_bt import ESP32BtFuzzLog
 from utils import ae_logger, session_id
 
-ae_logger.info("Start auto exploiter")
+ae_logger.info("Start AirBugCatcher")
 
 fuzzlog = ESP32BtFuzzLog(
     use_cache=False,

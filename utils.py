@@ -53,7 +53,7 @@ def get_logger(name: str):
     filehandler = logging.FileHandler(
         f"{RUN_LOG_PATH}/{name}.log", mode="w", encoding="utf8"
     )
-    print(f"Auto Exploiter log is saved in {RUN_LOG_PATH}/{name}.log")
+    print(f"AirBugCatcher log is saved in {RUN_LOG_PATH}/{name}.log")
     filehandler.setFormatter(
         logging.Formatter(
             "%(asctime)s - %(levelname)s - %(filename)s:%(funcName)s:%(lineno)d - %(message)s"
