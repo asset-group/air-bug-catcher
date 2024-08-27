@@ -181,4 +181,4 @@ bin
 configs
 
 # Our experiment results
-!our-results/**
+our-results/
