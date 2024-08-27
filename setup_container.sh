@@ -13,7 +13,7 @@ sudo podman run --privileged \
     --systemd=always \
     --entrypoint="/sbin/init" \
     --restart=always \
-    --name="airbugcatcher-eval" \
+    --name="airbugcatcher_eval" \
     -dt docker.io/megarbelini/5ghoul:release-5g-x86_64
-echo 'The container to evaluate AirBugCatcher has been started with name "airbugcatcher-eval".'
+echo 'The container to evaluate AirBugCatcher has been started with name "airbugcatcher_eval".'
 echo 'Please enter the container to continue installing AirBugCatcher.'
