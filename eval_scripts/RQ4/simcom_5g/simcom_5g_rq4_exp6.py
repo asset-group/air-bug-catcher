@@ -1,28 +1,26 @@
 from auto_exploiter import AutoExploiter
-from exploiter.cypress_bt import CypressExploiter
-from fuzzlog.cypress_bt import CypressBtFuzzlog
+from exploiter.simcom_5g import SIMCom5GExploiter
+from fuzzlog.simcom_5g import SIMCom5GFuzzLog
 from utils import ae_logger, session_id
 
-ae_logger.info("Start AirBugCatcher for Cypress")
+ae_logger.info("Start AirBugCatcher")
 
-fuzzlog = CypressBtFuzzlog(
-    use_cache=False,
-    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/cypress_bt/capture_bluetooth_cypress_fuzzing.pcapng",
+fuzzlog = SIMCom5GFuzzLog(
+    use_cache=True,
     enable_group_crashes=True,
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/simcom_5g/capture_nr5g_gnb.pcapng",
 )
 
-exploiter = CypressExploiter(
-    fuzzlog=fuzzlog,
+exploiter = SIMCom5GExploiter(
     session_id=session_id,
-    run_dir="/home/user/wdissector",
-    host_port="/dev/ttyBTHost",
-    target="20:73:5b:18:6c:f2",
-    target_port="/dev/ttyCypress",
-    target_hub_port=2,
+    run_dir="/home/user/wdissector4",
+    fuzzlog=fuzzlog,
+    target_hub_port=4,
     exploit_timeout=60,
     flooding_exploit_timeout=120,
     timeout_exploit_timeout=120,
 )
+
 auto_exploiter = AutoExploiter(
     fuzzlog=fuzzlog,
     exploiter=exploiter,

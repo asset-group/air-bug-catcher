@@ -1,31 +1,29 @@
 from auto_exploiter import AutoExploiter
-from exploiter.cypress_bt import CypressExploiter
-from fuzzlog.cypress_bt import CypressBtFuzzlog
+from exploiter.oneplus_5g import OnePlus5GExploiter
+from fuzzlog.oneplus_5g import OnePlus5GFuzzLog
 from utils import ae_logger, session_id
 
-ae_logger.info("Start AirBugCatcher for Cypress")
+ae_logger.info("Start auto exploiter")
 
-fuzzlog = CypressBtFuzzlog(
+oneplus_fuzzlog = OnePlus5GFuzzLog(
     use_cache=False,
-    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/cypress_bt/capture_bluetooth_cypress_fuzzing.pcapng",
     enable_group_crashes=True,
+    capture_path="/home/user/wdissector/modules/auto-exploiter/captures/nordce2_eval_evo_nb/capture_nr5g_gnb_processed.pcapng",
+    log_path="",
 )
-
-exploiter = CypressExploiter(
-    fuzzlog=fuzzlog,
+oneplus_exploiter = OnePlus5GExploiter(
     session_id=session_id,
     run_dir="/home/user/wdissector",
-    host_port="/dev/ttyBTHost",
-    target="20:73:5b:18:6c:f2",
-    target_port="/dev/ttyCypress",
-    target_hub_port=2,
+    fuzzlog=oneplus_fuzzlog,
+    modem_timeout=60,
     exploit_timeout=60,
     flooding_exploit_timeout=120,
     timeout_exploit_timeout=120,
 )
+
 auto_exploiter = AutoExploiter(
-    fuzzlog=fuzzlog,
-    exploiter=exploiter,
+    fuzzlog=oneplus_fuzzlog,
+    exploiter=oneplus_exploiter,
     session_id=session_id,
     max_fuzzed_pkts=3,
     min_trial_pkts=6,

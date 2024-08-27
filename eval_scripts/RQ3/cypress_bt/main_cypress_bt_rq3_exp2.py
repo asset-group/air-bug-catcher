@@ -3,18 +3,18 @@ from exploiter.cypress_bt import CypressExploiter
 from fuzzlog.cypress_bt import CypressBtFuzzlog
 from utils import ae_logger, session_id
 
-ae_logger.info("Start auto exploiter for Cypress")
+ae_logger.info("Start AirBugCatcher for Cypress")
 
 fuzzlog = CypressBtFuzzlog(
     use_cache=False,
-    capture_path="/home/user/wdissector/modules/auto-exploiter/captures/capture_bluetooth_cypress_fuzzing.pcapng",
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/cypress_bt/capture_bluetooth_cypress_fuzzing.pcapng",
     enable_group_crashes=True,
 )
 
 exploiter = CypressExploiter(
     fuzzlog=fuzzlog,
     session_id=session_id,
-    run_dir="/home/user/wdissector2",
+    run_dir="/home/user/wdissector",
     host_port="/dev/ttyBTHost",
     target="20:73:5b:18:6c:f2",
     target_port="/dev/ttyCypress",
