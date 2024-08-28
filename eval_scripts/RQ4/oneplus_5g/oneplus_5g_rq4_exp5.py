@@ -3,10 +3,10 @@ from exploiter.oneplus_5g import OnePlus5GExploiter
 from fuzzlog.oneplus_5g import OnePlus5GFuzzLog
 from utils import ae_logger, session_id
 
-ae_logger.info("Start auto exploiter")
+ae_logger.info("Start AirBugCatcher")
 
 oneplus_fuzzlog = OnePlus5GFuzzLog(
-    use_cache=True,
+    use_cache=False,
     enable_group_crashes=True,
     capture_path="/home/user/wdissector/modules/airbugcatcher/captures/oneplus_5g/capture_nr5g_gnb.pcapng",
     log_path="/home/user/wdissector/modules/airbugcatcher/captures/oneplus_5g/monitor.combined.txt",

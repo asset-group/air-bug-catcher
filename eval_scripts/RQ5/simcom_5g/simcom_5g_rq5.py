@@ -17,7 +17,7 @@ for root, dirs, files in os.walk(
 
 
 fuzzlog = SIMCom5GFuzzLog(
-    use_cache=True,
+    use_cache=False,
     enable_group_crashes=True,
     capture_path="/home/user/wdissector/modules/airbugcatcher/captures/simcom_5g/capture_nr5g_gnb.pcapng",
 )

@@ -16,7 +16,7 @@ for root, dirs, files in os.walk(
         exploits.append(exploit)
 
 oneplus_fuzzlog = OnePlus5GFuzzLog(
-    use_cache=True,
+    use_cache=False,
     enable_group_crashes=True,
     capture_path="/home/user/wdissector/modules/airbugcatcher/captures/oneplus_5g/capture_nr5g_gnb.pcapng",
     log_path="/home/user/wdissector/modules/airbugcatcher/captures/oneplus_5g/monitor.combined.txt",

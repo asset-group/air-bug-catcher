@@ -6,7 +6,7 @@ from utils import ae_logger, session_id
 ae_logger.info("Start AirBugCatcher")
 
 fuzzlog = SIMCom5GFuzzLog(
-    use_cache=True,
+    use_cache=False,
     enable_group_crashes=True,
     capture_path="/home/user/wdissector/modules/airbugcatcher/captures/simcom_5g/capture_nr5g_gnb.pcapng",
 )

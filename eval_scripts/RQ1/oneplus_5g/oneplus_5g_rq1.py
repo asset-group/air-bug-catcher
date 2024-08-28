@@ -8,12 +8,12 @@ ae_logger.info("Start AirBugCatcher")
 oneplus_fuzzlog = OnePlus5GFuzzLog(
     use_cache=False,
     enable_group_crashes=True,
-    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/oneplus_5g/capture_nr5g_gnb.pcapng",
-    log_path="/home/user/wdissector/modules/airbugcatcher/captures/oneplus_5g/monitor.combined.txt",
+    capture_path="/home/user/wdissector/modules/auto-exploiter/captures/nordce2_eval_evo_nb/capture_nr5g_gnb_processed.pcapng",
+    log_path="/home/user/wdissector/modules/auto-exploiter/captures/nordce2_eval_evo_nb/monitor.combined.txt",
 )
 oneplus_exploiter = OnePlus5GExploiter(
     session_id=session_id,
-    run_dir="/home/user/wdissector",
+    run_dir="/home/user/wdissector3",
     fuzzlog=oneplus_fuzzlog,
     modem_timeout=60,
     exploit_timeout=60,
@@ -28,7 +28,7 @@ auto_exploiter = AutoExploiter(
     max_fuzzed_pkts=3,
     min_trial_pkts=6,
     min_trial_iter=3,
-    max_trial_time=60 * 20,
+    max_trial_time=60 * 60,
     enable_flooding=True,
     enable_duplication=True,
     enable_mutation=True,
