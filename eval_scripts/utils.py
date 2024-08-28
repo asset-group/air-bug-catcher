@@ -4,7 +4,7 @@ import re
 
 def convert_friendly_time(t) -> str:
     if t >= 3600:
-        return f"{t//3600} hr {t%3600/60:>02.0f} min"
+        return f"{t//3600:.0f} hr {t%3600/60:>02.0f} min"
     return f"{t/60} min"
 
 

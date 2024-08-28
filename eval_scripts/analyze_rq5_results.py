@@ -7,6 +7,7 @@ if len(sys.argv) < 2:
 
 results_folder = sys.argv[1]
 
+print("===== RQ5 Statistics =====\n")
 for device in ["esp32_bt", "cypress_bt", "oneplus_5g", "simcom_5g", "esp32_wifi"]:
     for trial in range(1, 6):
         raw_log_path = os.path.join(

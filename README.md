@@ -29,7 +29,7 @@ Packet analysis component in AirBugCatcher takes advantage of WDissector binding
 cd modules/air-bug-catcher/
 ln -s ../../bin/ bin
 ln -s ../../configs/ configs
-ln -s ../../bindings/wdissector.py wdissector.py
+ln -s ../../bindings/python/wdissector.py wdissector.py
 ```
 
 ## AirBugCatcher
