@@ -7,17 +7,17 @@ ae_logger.info("Start AirBugCatcher")
 
 fuzzlog = ESP32BtFuzzLog(
     use_cache=False,
-    capture_path="/home/user/wdissector/modules/auto-exploiter/captures/new_ref_mut/capture_bluetooth.pcapng",
-    log_path="/home/user/wdissector/modules/auto-exploiter/captures/new_ref_mut/monitor.1.txt",
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/new_ref_mut/capture_bluetooth.pcapng",
+    log_path="/home/user/wdissector/modules/airbugcatcher/captures/new_ref_mut/monitor.1.txt",
     same_crash_thresh=2000,
     enable_group_crashes=True,
 )
 esp32_bt_exploiter = ESP32BtExploiter(
     fuzzlog=fuzzlog,
     session_id=session_id,
-    run_dir="/home/user/wdissector2",
+    run_dir="/home/user/wdissector",
     host_port="/dev/ttyUSB12",
-    target="24:0a:c4:61:1c:1a",
+    target="fc:f5:c4:26:fa:b6",
     target_port="/dev/ttyESP32-24",
     target_hub_port=1,
     exploit_timeout=60,

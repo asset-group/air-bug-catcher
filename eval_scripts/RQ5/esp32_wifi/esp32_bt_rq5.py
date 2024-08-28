@@ -1,9 +1,20 @@
-from auto_exploiter import AutoExploiter
+import os
+
 from exploiter.esp32_wifi import ESP32WifiExploiter
 from fuzzlog.esp32_wifi import ESP32WifiFuzzLog
 from utils import ae_logger, session_id
 
 ae_logger.info("Start AirBugCatcher")
+
+exploits = []
+for root, dirs, files in os.walk(
+    "/home/user/wdissector/modules/airbugcatcher/captures/esp32_wifi/baseline_data"
+):
+    for file in files:
+        pref = file.replace("baseline_data_", "").replace(".bin", "")
+        exploit = f"esp32_wifi_bl_{pref}"
+        exploits.append(exploit)
+
 
 fuzzlog = ESP32WifiFuzzLog(
     use_cache=False,
@@ -17,25 +28,14 @@ exploiter = ESP32WifiExploiter(
     fuzzlog=fuzzlog,
     session_id=session_id,
     run_dir="/home/user/wdissector",
-    target_port="/dev/ttyUSB1",
+    target_port="/dev/ttyWiFi",
     target_hub_port=4,
     exploit_timeout=60,
     flooding_exploit_timeout=120,
     timeout_exploit_timeout=120,
 )
 
-
-auto_exploiter = AutoExploiter(
-    fuzzlog=fuzzlog,
-    exploiter=exploiter,
-    session_id=session_id,
-    max_fuzzed_pkts=3,
-    min_trial_pkts=6,
-    min_trial_iter=0,
-    max_trial_time=60 * 60,
-    enable_flooding=False,
-    enable_duplication=True,
-    enable_mutation=True,
-)
-
-auto_exploiter.run()
+for exploit in exploits:
+    target_crash_type = "timeout" if "timeout" in exploit else "normal"
+    crash_triggered, crash_ids = exploiter.run_exploit_once(exploit, "", target_crash_type)
+    ae_logger.info(f"Baseline exploit {exploit}: crash_ids: {crash_ids}")

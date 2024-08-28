@@ -49,11 +49,3 @@ def count_total_exp_time(log_path) -> int:
 def count_total_exp_time_friendly(log_path) -> str:
     t = count_total_exp_time(log_path)
     return convert_friendly_time(t)
-
-
-if __name__ == "__main__":
-    print(
-        count_total_exp_time_friendly(
-            "/home/hua/codebase/airbugcatcher/our-results/RQ3/cypress_bt/cypress_bt_rq3_exp1.log"
-        )
-    )

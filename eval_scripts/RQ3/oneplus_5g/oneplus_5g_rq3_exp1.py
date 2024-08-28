@@ -8,7 +8,7 @@ ae_logger.info("Start AirBugCatcher")
 oneplus_fuzzlog = OnePlus5GFuzzLog(
     use_cache=False,
     enable_group_crashes=True,
-    capture_path="/home/user/wdissector/modules/auto-exploiter/captures/nordce2_eval_evo_nb/capture_nr5g_gnb_processed.pcapng",
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/oneplus_5g/capture_nr5g_gnb.pcapng",
     log_path="",
 )
 oneplus_exploiter = OnePlus5GExploiter(

@@ -13,7 +13,7 @@ fuzzlog = SIMCom5GFuzzLog(
 
 exploiter = SIMCom5GExploiter(
     session_id=session_id,
-    run_dir="/home/user/wdissector4",
+    run_dir="/home/user/wdissector",
     fuzzlog=fuzzlog,
     target_hub_port=4,
     exploit_timeout=60,

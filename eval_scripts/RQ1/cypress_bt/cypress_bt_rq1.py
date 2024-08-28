@@ -7,18 +7,18 @@ ae_logger.info("Start AirBugCatcher for Cypress")
 
 fuzzlog = CypressBtFuzzlog(
     use_cache=False,
-    capture_path="/home/user/wdissector/modules/auto-exploiter/captures/capture_bluetooth_cypress_fuzzing.pcapng",
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/capture_bluetooth_cypress_fuzzing.pcapng",
     enable_group_crashes=True,
 )
 
 exploiter = CypressExploiter(
     fuzzlog=fuzzlog,
     session_id=session_id,
-    run_dir="/home/user/wdissector2",
-    host_port="/dev/ttyUSB3",
+    run_dir="/home/user/wdissector",
+    host_port="/dev/ttyBTHost",
     target="20:73:5b:18:6c:f2",
-    target_port="/dev/ttyUSB5",
-    target_hub_port=3,
+    target_port="/dev/ttyCypress",
+    target_hub_port=2,
     exploit_timeout=60,
     flooding_exploit_timeout=120,
     timeout_exploit_timeout=120,
