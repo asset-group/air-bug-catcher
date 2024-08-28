@@ -2,7 +2,7 @@ import os
 import re
 import sys
 
-from .utils import convert_friendly_time, count_total_exp_time
+from .utils import convert_friendly_time, count_total_exp_time, get_abc_log_path
 
 if len(sys.argv) < 2:
     print("Need to specify the RQ1 results folder.")
@@ -13,12 +13,7 @@ results_folder = sys.argv[1]
 
 def count_rq1(device):
     raw_log_path = os.path.join(results_folder, f"{device}/{device}_rq1.log")
-    with open(raw_log_path, "r", encoding="utf8", errors="ignore") as f:
-        for line in f:
-            if "log is saved in" in line:
-                abc_log_name = re.findall(r"/[^/]*?\.log", line)[0]
-                abc_log_path = os.path.join(results_folder, f"{device}{abc_log_name}")
-                break
+    abc_log_path = get_abc_log_path(raw_log_path)
 
     # Unique bugs
     num_unique_crash = 0

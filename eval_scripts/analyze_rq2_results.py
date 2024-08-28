@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+from eval_scripts.utils import get_abc_log_path
+
 if len(sys.argv) < 2:
     print(
         "Need to specify the RQ2 results folder. Note that RQ2 statistics can be derived from RQ1 results, so the folder can be RQ1 results folder."
@@ -18,12 +20,7 @@ results_folder = sys.argv[1]
 
 def count_expected_bug_trigger_times(device):
     raw_log_path = os.path.join(results_folder, f"{device}/{device}_rq1.log")
-    with open(raw_log_path, "r", encoding="utf8", errors="ignore") as f:
-        for line in f:
-            if "log is saved in" in line:
-                abc_log_name = re.findall(r"/[^/]*?\.log", line)[0]
-                abc_log_path = os.path.join(results_folder, f"{device}{abc_log_name}")
-                break
+    abc_log_path = get_abc_log_path(raw_log_path)
 
     trigger_times = []
     with open(abc_log_path, "r", encoding="utf8", errors="ignore") as f:

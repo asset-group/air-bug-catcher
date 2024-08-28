@@ -43,8 +43,12 @@ ln -s ../../bindings/python/wdissector.py wdissector.py
 python -m eval_scripts.gen_baseline_scripts
 mkdir -p eval_results/
 
-# Compile Scripts
+# Compile scripts
 cd /home/user/wdissector
+./bin/bt_fuzzer --no-gui --help
+./bin/wifi_ap_fuzzer --help
+./bin/lte_fuzzer --exploit=
+# Run twice because there can be some compilation issue in between
 ./bin/bt_fuzzer --no-gui --help
 ./bin/wifi_ap_fuzzer --help
 ./bin/lte_fuzzer --exploit=

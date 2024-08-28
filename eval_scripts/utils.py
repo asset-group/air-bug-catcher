@@ -1,3 +1,4 @@
+import os
 import re
 
 
@@ -49,3 +50,17 @@ def count_total_exp_time(log_path) -> int:
 def count_total_exp_time_friendly(log_path) -> str:
     t = count_total_exp_time(log_path)
     return convert_friendly_time(t)
+
+
+def get_abc_log_path(raw_log_path) -> str:
+    base_path = os.path.dirname(raw_log_path)
+    with open(raw_log_path, "r", encoding="utf8", errors="ignore") as f:
+        for line in f:
+            if "log is saved in" in line:
+                abc_log_name = re.findall(r"/[^/]*?\.log", line)[0].replace(os.sep, "")
+                abc_log_path = os.path.join(base_path, abc_log_name)
+                if os.path.exists(abc_log_path):
+                    return abc_log_path
+
+                abc_log_path = re.findall(r"/.*\.log", line)[0]
+                return abc_log_path
