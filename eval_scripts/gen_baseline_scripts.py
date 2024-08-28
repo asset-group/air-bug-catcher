@@ -27,12 +27,12 @@ def gen(baseline_data_dir, protocol, device):
             pref = file.replace("baseline_data_", "").replace(".bin", "")
             path = os.path.join(root, file)
 
-        with open(
-            os.path.join(script_folder, f"{script_name_prefix}_{pref}.cpp"),
-            "w",
-            encoding="utf8",
-        ) as f:
-            f.write(baseline_exploit_script.replace("<baseline_data_path>", path))
+            with open(
+                os.path.join(script_folder, f"{script_name_prefix}_{pref}.cpp"),
+                "w",
+                encoding="utf8",
+            ) as f:
+                f.write(baseline_exploit_script.replace("<baseline_data_path>", path))
 
 
 if __name__ == "__main__":

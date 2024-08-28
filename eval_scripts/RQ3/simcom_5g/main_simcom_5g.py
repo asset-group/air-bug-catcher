@@ -8,14 +8,14 @@ ae_logger.info("Start AirBugCatcher")
 fuzzlog = SIMCom5GFuzzLog(
     use_cache=False,
     enable_group_crashes=True,
-    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/simcom/capture_nr5g_gnb.pcapng",
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/simcom_5g/capture_nr5g_gnb.pcapng",
 )
 
 exploiter = SIMCom5GExploiter(
     session_id=session_id,
     run_dir="/home/user/wdissector",
     fuzzlog=fuzzlog,
-    target_hub_port=4,
+    target_hub_port=3,
     exploit_timeout=60,
     flooding_exploit_timeout=120,
     timeout_exploit_timeout=120,

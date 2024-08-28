@@ -1,7 +1,7 @@
 import os
 
-CAPTURE_CACHE_PATH = "/home/user/wdissector/modules/auto-exploiter/cache"
-RUN_LOG_PATH = "/home/user/wdissector/modules/auto-exploiter/logs"
+CAPTURE_CACHE_PATH = "/home/user/wdissector/modules/airbugcatcher/cache"
+RUN_LOG_PATH = "/home/user/wdissector/modules/airbugcatcher/logs"
 
 
 os.makedirs(CAPTURE_CACHE_PATH, exist_ok=True)

@@ -7,7 +7,7 @@ ae_logger.info("Start AirBugCatcher for Cypress")
 
 fuzzlog = CypressBtFuzzlog(
     use_cache=False,
-    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/capture_bluetooth_cypress_fuzzing.pcapng",
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/cypress_bt/capture_bluetooth_cypress_fuzzing.pcapng",
     enable_group_crashes=True,
 )
 

@@ -7,7 +7,7 @@ ae_logger.info("Start AirBugCatcher")
 
 fuzzlog = ESP32BtFuzzLog(
     use_cache=False,
-    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/new_ref_mut/capture_bluetooth.pcapng",
+    capture_path="/home/user/wdissector/modules/airbugcatcher/captures/esp32_bt/capture_bluetooth.pcapng",
     log_path="",
     same_crash_thresh=2000,
     enable_group_crashes=True,

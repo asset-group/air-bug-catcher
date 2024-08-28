@@ -34,7 +34,19 @@ pip install -r requirements.txt
 tar --lzma -xvf our-results.tar.lzma
 tar --lzma -xvf captures.tar.lzma
 
+# Link WDissector binaries
+ln -s ../../bin/ bin
+ln -s ../../configs/ configs
+ln -s ../../bindings/python/wdissector.py wdissector.py
+
 # Generate baseline script
 python -m eval_scripts.gen_baseline_scripts
+mkdir -p eval_results/
+
+# Compile Scripts
+cd /home/user/wdissector
+./bin/bt_fuzzer --no-gui --help
+./bin/wifi_ap_fuzzer --help
+./bin/lte_fuzzer --exploit=
 
 echo '\nSetup for AirBugCatcher is now complete!'
