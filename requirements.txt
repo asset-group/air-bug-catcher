@@ -1,3 +1,8 @@
 python-pcapng==2.1.1
 scapy==2.5.0
 pyserial==3.5
+
+# For RQ2 statistics generation only
+pandas==2.2.2
+matplotlib==3.9.2
+seaborn==0.13.2
