@@ -30,4 +30,11 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
+# Setup packet captures data and our original results for evaluation
+tar --lzma -xvf our-results.tar.lzma
+tar --lzma -xvf captures.tar.lzma
+
+# Generate baseline script
+python -m eval_scripts.gen_baseline_scripts
+
 echo '\nSetup for AirBugCatcher is now complete!'
