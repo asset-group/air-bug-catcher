@@ -31,7 +31,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # Setup packet captures data and our original results for evaluation
-tar --lzma -xvf our-results.tar.lzma
+tar --lzma -xvf our_results.tar.lzma
 tar --lzma -xvf captures.tar.lzma
 
 # Link WDissector binaries
