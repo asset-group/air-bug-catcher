@@ -18,6 +18,8 @@ modules/
 └───air-bug-catcher/
 ```
 
+We are utilizing the container from [braktooth](https://github.com/Matheus-Garbelini/braktooth_esp32_bluetooth_classic_attacks) and [5Ghoul](https://github.com/asset-group/5ghoul-5g-nr-attacks) research team. We have provided the scripts to setup the container and AirBugCatcher in `setup_airbugcatcher.sh` and `setup_container.sh`.
+
 ## Hardware Setup
 
 The setup instructions for both target devices and non-target devices can be found in [braktooth](https://github.com/Matheus-Garbelini/braktooth_esp32_bluetooth_classic_attacks).
