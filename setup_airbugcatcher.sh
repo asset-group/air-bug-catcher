@@ -1,5 +1,5 @@
-apt update
-apt install wget unzip -y
+apt update -y
+apt install wget unzip net-tools rfkill -y
 
 # Install Python 3.12.3 from source since Ubuntu 18.04 packages do not include this Python version
 echo '\nCompiling Python 3.12.3 from source code, it can take some time.\n'
@@ -54,4 +54,4 @@ cd /home/user/wdissector
 ./bin/wifi_ap_fuzzer --help
 ./bin/lte_fuzzer --exploit=
 
-echo '\nSetup for AirBugCatcher is now complete!'
+echo "\nSetup for AirBugCatcher is now complete!"
