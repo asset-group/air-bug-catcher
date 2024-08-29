@@ -38,6 +38,7 @@ tar --lzma -xvf captures.tar.lzma
 ln -s ../../bin/ bin
 ln -s ../../configs/ configs
 ln -s ../../bindings/python/wdissector.py wdissector.py
+cp /home/user/wdissector/bin/5g_fuzzer /home/user/wdissector/bin/lte_fuzzer
 
 # Generate baseline script
 python -m eval_scripts.gen_baseline_scripts
