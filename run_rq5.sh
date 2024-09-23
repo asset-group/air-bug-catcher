@@ -1,5 +1,9 @@
 . run_utils.sh
 
+clean_running_files
+trap clean_running_files EXIT
+create_running_file 5
+
 echo "Running RQ5"
 source .venv/bin/activate
 

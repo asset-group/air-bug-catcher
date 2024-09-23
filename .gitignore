@@ -182,3 +182,6 @@ configs
 
 # Our experiment results
 our_results/
+
+# For evaluation
+*.running
