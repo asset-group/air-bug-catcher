@@ -161,7 +161,7 @@ def read_log_progress_rq1_rq4(log_path):
         if running_bug_index >= 0:
             progress = (
                 running_bug_index
-                + (time.time() - bug_start_time) / 60 * 60  # TODO: change back to 60*60
+                + (time.time() - bug_start_time) / (60 * 60)  # TODO: change back to 60*60
             ) / num_unique
             progress = min(1, progress)
 
