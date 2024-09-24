@@ -144,6 +144,35 @@ python -m eval_scripts.gen_fuzzing_logs_stats
 
 ![Fuzzing Logs Analysis](images/gen_table3.png)
 
+# Advanced Usage
+
+## Test Other Targets
+
+It is easy to extend AirBugCatcher to support other targets besides the five targets mentioned in the paper. The WDissector tool utilized by AirBugCatcher has a wide range of device support and AirBugCatcher can support anything that WDissector supports. To extend AirBugCatcher to other devices, the fuzzing log needs to be prepared. After the fuzzing log is ready, prepare AirBugCatcher scripts and execute. More details are shown in the following sections.
+
+### Prepare Fuzzing Logs
+
+For example, we want to extend AirBugCatcher to Bluetooth device **XTooth** (for demonstration purpose only as there is no such device). 
+Run WDissector with the device and get the fuzzing logs. The instructions on how to run WDissector can found in \[1\]\[2\]. Then navigate to folder `fuzzlog/`, a new file may be created for the new device: `bt_xtooth.py` (there is no naming requirement, any name is accepted). Please insert the *logic for processing and analyzing the fuzzing logs* for XTooth in this file. Kindly check the existing files in `fuzzlog/` folder for reference. The fuzzing logs may have  different format for different devices.
+
+### Prepare Exploiter
+
+A new file `bt_xtooth.py` may be needed under folder `exploiter/` for the logic to run the exploit for XTooth. Thanks to WDissector, most likely the logic for XTooth should be the same as the existing Bluetooth devices, meaning that no new logic is needed and all we need to do is to inherit the Bluetooth class in folder `exploiter/`. However, if the logic is different, `exploiter/` folder is the correct place to put the exploiter logic.
+
+### Run AirBugCatcher
+
+The files inside `eval_scripts/` folder, under `RQ1/`, `RQ3/`, `RQ4` and `RQ5` are great source to start and refer to. Kindly check the following steps before setting off:
+1. **Imports**
+    - If new device is added and new logic is added to fuzzlog and exploiter, remember check if the import is correct.
+2. **Fuzzlog**
+    - Use the correct `capture_path` in your fuzzlog.
+3. **Exploiter**
+    - Check if the following device connection parameter is correct inside exploiter. Ensure the target device is accessible.
+        - `host_port`: Bluetooth Host Port, e.g. `/dev/ttyBTHost`.
+        - `target`: Bluetooth target MAC address, e.g. `20:73:5b:18:6c:f2`.
+        - `target_port`: Bluetooth target port, e.g. `/dev/ttyCypress`.
+
+
 # References
 
 1. Matheus E. Garbelini, Vaibhav Bedi, Sudipta Chattopadhyay, Sumei Sun, and Ernest Kurniawan. BrakTooth: Causing havoc on bluetooth link manager
