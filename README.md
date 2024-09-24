@@ -96,7 +96,7 @@ In the end of each RQ evaluation, the statistics will be generated and shown on 
 
 **Evaluation Progress**
 
-While it takes a long time to run all the evaluations, we provide a helper script to show the progress the evaluation process. Simply run `bash run_rq_progress.sh` in a new window after running either of run_rq1.sh, run_rq3.sh, run_rq4.sh and run_rq5.sh.
+While it takes a long time to run all the evaluations, we provide a helper script to show the progress the evaluation process. Simply run `bash run_rq_progress.sh` in a new window (inside AirBugCatcher folder) when running either of run_rq1.sh, run_rq3.sh, run_rq4.sh and run_rq5.sh.
 
 ![](images/run_rq_progress.png)
 
