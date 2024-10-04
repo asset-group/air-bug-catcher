@@ -1,8 +1,9 @@
 import re
 
+from wdissector import WD_DIR_TX
+
 from fuzzlog.fuzzlog import Crash, FuzzedPkt
 from utils import WDissectorTool, ae_logger, pcap_pkt_reader
-from wdissector import WD_DIR_TX
 
 
 def assign_crash_ids_wdissector(crashes: list[Crash]):
