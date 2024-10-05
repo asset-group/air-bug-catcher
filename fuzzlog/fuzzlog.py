@@ -10,6 +10,27 @@ ProtocolType = Literal["5g", "bt", "wifi"]
 
 
 class Crash:
+    """
+    Crash class contains the information and packets related to a crash.
+
+    Attributes
+    ----------
+    fuzzed_pkts : list["FuzzedPkt"]
+        List of fuzzed packets before the crash (and after the last crash) from the fuzzing logs
+    loc : int
+        Location of crash in fuzzing logs
+    iteration : int
+        Iteration of crash in fuzzing logs
+    identifier : str | None
+        Identifier of crash
+    crash_type : str
+        Type of crash, possible values are `normal`, `timeout` and `flooding`
+    raw : bytes
+        Raw string of crash comment
+    timestamp : int
+        Timestamp when crash happens
+    """
+
     def __init__(
         self,
         fuzzed_pkts: list["FuzzedPkt"],
@@ -31,6 +52,10 @@ class Crash:
 
 @dataclass
 class FuzzedPkt:
+    """
+    FuzzedPkt class contains the information of one fuzzed packet in fuzzing log.
+    """
+
     pkt_bytes: bytes
     loc: int
     iteration: int
@@ -43,7 +68,21 @@ class FuzzedPkt:
 
 class FuzzLog:
     """
-    Fuzz log interface. Do not write concrete methods inside.
+    Fuzzlog class contains the information about the fuzzing logs.
+    The detailed implementation for different protocols and devices can be found in this folder.
+
+    Attributes
+    ----------
+    protocol : ProtocolType
+        Protocol of the fuzzing logs
+    board : BoardType
+        Board in which the fuzzing logs are generated on, such as ESP32 or Cypress
+    use_cache : bool
+        Whether or not to enable the cache mechanism
+    has_trace_log : bool
+        Whether or not the fuzzing log contains target trace logs, such as Guru Meditation logs in ESP32
+    enable_group_crashes : bool
+        Whether or not to enable crash grouping
     """
 
     def __init__(
@@ -65,14 +104,48 @@ class FuzzLog:
         self.grouped_crashes: list[list[Crash]] = []
 
     def is_same_crash_id(self, id1, id2):
+        """
+        Check if two crash identifiers can be classified as the same
+
+        Parameters
+        ----------
+        id1 : str | None
+            The first crash identifier
+        id2: str | None
+            The second crash identifier
+
+        Returns
+        -------
+        is_same : bool
+        """
         raise NotImplementedError
 
     def get_crash_id(self, trace_log_path: str, run_log_path: str, target_crash_type: str):
+        """
+        Get crash identifier from exploit log.
+
+        Parameters
+        ----------
+        trace_log_path : str
+            Path to target trace log
+        run_log_path : str
+            Path to exploit running log
+        target_crash_type: str
+            Type of crash, possible values are `normal`, `timeout` and `flooding`
+
+        Returns
+        -------
+        crash_id : str | None
+            Crash identifier
+        """
         raise NotImplementedError
 
     def group_crashes(self):
-        # Group the same kind of crashes based on their identifiers.
-        # Developer note: `itertools.groupby` is not a feasible solution here.
+        """
+        Group the same kind of crashes based on their identifiers.
+
+        Developer note: `itertools.groupby` is not a feasible solution here.
+        """
         if not self.enable_group_crashes:
             self.grouped_crashes = [[crash] for crash in self.crashes]
         else:

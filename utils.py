@@ -11,8 +11,6 @@ import sys
 from pcapng import FileScanner
 from pcapng.blocks import EnhancedPacket
 from pcapng.exceptions import TruncatedFile
-
-from constants import RUN_LOG_PATH
 from wdissector import (
     WD_DIR_TX,
     WD_MODE_FULL,
@@ -24,8 +22,25 @@ from wdissector import (
     wd_set_packet_direction,
 )
 
+from constants import RUN_LOG_PATH
 
-def count_mut_dup(exploit_path: str):
+
+def count_mut_dup(exploit_path: str) -> tuple[int, int]:
+    """
+    Count the number of mutated and duplicated packets inside a exploit script.
+
+    Parameters
+    ----------
+    exploit_path : str
+        Path to the exploit script
+
+    Returns
+    -------
+    mut_count : int
+        Number of mutated packets in the exploit
+    dup_count : int
+        Number of duplicated packets in the exploit
+    """
     # count the number of mutated and duplicated packets inside exploit_path
     exploit_content = open(exploit_path, "r", encoding="utf8", errors="ignore").read()
     mut_count = exploit_content.count("Send mutated packet now")
@@ -35,17 +50,54 @@ def count_mut_dup(exploit_path: str):
 
 
 def random_string(size: int) -> str:
+    """
+    Generate a random string consisting of lower case letters and digits.
+
+    Parameters
+    ----------
+    size : int
+        Length of the desired random string
+
+    Returns
+    -------
+    s : str
+        Random string
+    """
     return "".join(
         random.choice(string.ascii_lowercase + string.digits) for _ in range(size)
     )
 
 
-def human_current_date():
+def human_current_date() -> str:
+    """
+    Generate a human-friendly current date.
+    The format is month_day_hour_minute, for example: `10_04_17_05` means `October 4th, 17:05`.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    date_str : str
+    """
     now = datetime.datetime.now()
     return f"{now.month:02}_{now.day:02}_{now.hour:02}_{now.minute:02}"
 
 
-def get_logger(name: str):
+def get_logger(name: str) -> logging.Logger:
+    """
+    Get logger with the specified name.
+
+    Parameters
+    ----------
+    name : str
+        Logger name
+
+    Returns
+    -------
+    logger : Logger
+    """
     # TODO: this function needs to be prevented from being called multiple times
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
@@ -67,14 +119,40 @@ session_id = random_string(4)
 ae_logger = get_logger(f"ae_{human_current_date()}_{session_id}")
 
 
-def calc_bytes_sha256(b: bytes):
+def calc_bytes_sha256(b: bytes) -> str:
+    """
+    Calculate sha256 hash value of a bytes object.
+
+    Parameters
+    ----------
+    b : bytes
+
+    Returns
+    -------
+    h : str
+        sha256 hash value
+    """
     hash_sha256 = hashlib.sha256()
     hash_sha256.update(b)
 
     return hash_sha256.hexdigest()
 
 
-def calc_file_sha256(file_path: str, chunk_size: int = 4096):
+def calc_file_sha256(file_path: str, chunk_size: int = 4096) -> str:
+    """
+    Calculate sha256 hash value of a file.
+
+    Parameters
+    ----------
+    file_path : str
+        Path to file
+    chunk_size : int, default 4096
+        Chunk when reading the file. The chunk will be read into memory.
+
+    Returns
+    -------
+    sha256_hash : str
+    """
     hash_sha256 = hashlib.sha256()
     with open(file_path, "rb") as f:
         while True:
@@ -87,6 +165,19 @@ def calc_file_sha256(file_path: str, chunk_size: int = 4096):
 
 
 def pcap_pkt_reader(path: str):
+    """
+    Capture file reader, using python-pcapng library.
+
+    Parameters
+    ----------
+    path : str
+        Path to the capture file
+
+    Yields
+    -------
+    packet_id : int
+    packet : EnhancedPacket
+    """
     # Return a generator to yield EnhancedPacket and its index in the capture: (index, EnhancedPacket)
     with open(path, "rb") as f:
         scanner = FileScanner(f)
@@ -109,13 +200,25 @@ def pcap_pkt_reader(path: str):
 
 
 def clean_up_process(proc_name_keyword: str):
-    # As the exploit is run with `script` command and the exploit script itself will spawn other
-    # processes, there might be some orphan processes left. These processes might still take up
-    # resources like CPU or modem. The script process will still be there also, so need to clean up.
+    """
+    Helper function to kill processes whose name contains given keyword.
 
-    # find the process ID of the following commands and kill them
-    #   `script /tmp/tmp1edlcn4x --flush` or
-    #   `sudo bin/lte_fuzzer --exploit=mac_sch_auto_fuzz_exploit_8263 --EnableSimulator=false`
+    As the exploit is executed with `script` command and the exploit script itself will spawn other
+    processes, there might be some orphan processes left. These processes might still take up
+    resources like CPU or modem, so need to clean up. Be careful to use a specific keyword so that
+    no innocent processes will be killed. The command to run the exploits are like:
+    - `script /tmp/tmp1edlcn4x --flush` or
+    - `sudo bin/lte_fuzzer --exploit=mac_sch_auto_fuzz_exploit_8263 --EnableSimulator=false`.
+
+    Parameter
+    ---------
+    proc_name_keyword : str
+        Process name keyword
+
+    Returns
+    -------
+    None
+    """
     try:
         pids = (
             subprocess.check_output(["pgrep", "-f", proc_name_keyword])
@@ -134,7 +237,23 @@ def clean_up_process(proc_name_keyword: str):
 
 
 class WDissectorTool:
+    """
+    WDissector useful tools.
+
+    WDissectorTool class provides easy access to some useful functions developed by WDissector.
+
+    Attributes
+    ----------
+    protocol : str
+        Protocol used in WDissector
+    enable_full_dissection : bool
+        Enable the full dissection mode of WDissector. This mode is no long needed in AirBugCatcher.
+    """
+
     def __init__(self, protocol, enable_full_dissection: bool = False) -> None:
+        """
+        Initialize WDissector instance.
+        """
         if protocol == "bt":
             state_machine_config = "/home/user/wdissector/configs/bt_config.json"
             model_config = "/home/user/wdissector/configs/models/bt/sdp_rfcomm_query.json"
@@ -168,7 +287,22 @@ class WDissectorTool:
         if enable_full_dissection:
             wd_set_dissection_mode(self.wd, WD_MODE_FULL)
 
-    def pkt_state(self, pkt, pkt_decoding_offset):
+    def pkt_state(self, pkt: bytes, pkt_decoding_offset: int):
+        """
+        Get state of a packet.
+
+        Parameters
+        ----------
+        pkt : bytes
+            Packet data in bytes
+        pkt_decoding_offset : int
+            Offset to decode the packet. In some scenarios, WDissector may
+            need to decode a packet from the middle.
+
+        Returns
+        -------
+        state : str
+        """
         # TODO: detect packet direction, which is different for bluetooth and 5g
         dir = WD_DIR_TX
         pkt = bytearray(pkt)[pkt_decoding_offset:]
@@ -184,7 +318,26 @@ class WDissectorTool:
         )  # 2nd argument force transition to TX state, so we just need to validate RX
         return self.StateMachine.GetCurrentStateName()
 
-    def label_pkt(self, pkt: bytes, direction=WD_DIR_TX, pkt_decoding_offset=4):
+    def label_pkt(self, pkt: bytes, direction=WD_DIR_TX, pkt_decoding_offset: int = 4):
+        """
+        Get the label of a packet. The label is used to identify a packet and it is
+        in the form of Wireshark filter.
+
+        Parameters
+        ----------
+        pkt : bytes
+            Packet data in bytes
+        direction : WD_DIR_TX or WD_DIR_RX
+            Packet direction
+        pkt_decoding_offset : int
+            Offset to decode the packet. In some scenarios, WDissector may
+            need to decode a packet from the middle.
+
+        Returns
+        -------
+        label : str
+
+        """
         # Convert to raw and then to bytearray
         # bluetooth classic needs offset 4
         # TODO: pkt_decoding_offset should be set from capture type
@@ -200,8 +353,26 @@ class WDissectorTool:
 
 
 def find_mutation_loc(
-    protocol, original_pkt_bytes: bytes, mutated_pkt_bytes: bytes
-) -> list:
+    protocol: str, original_pkt_bytes: bytes, mutated_pkt_bytes: bytes
+) -> list[tuple[int, str]]:
+    """
+    Find the mutation locations by comparing the two packets.
+
+    Parameters
+    ----------
+    protocol : str
+        Protocol which the packet bytes belong to
+    original_pkt_bytes : bytes
+        Original packet data
+    mutated_pkt_bytes : bytes
+        mutate packet data
+
+    Returns
+    -------
+    locations : list[tuple[int, str]]
+        List of mutation locations. Each item in the list is a tuple consisting of
+        **mutation offset** and **value of mutated byte**.
+    """
     # TODO: integrate into fuzzlog class, this is wdissector only however
     # Find the different bytes in two packets. There might be multiple differences.
     if len(original_pkt_bytes) != len(mutated_pkt_bytes):
@@ -227,12 +398,43 @@ def find_mutation_loc(
 
 
 def convert_bytes_to_cpp_array(b: bytes):
+    """
+    Helper function to convert Python bytes to a C++ array.
+
+    Parameters
+    ----------
+    b : bytes
+        Python bytes
+
+    Returns
+    -------
+    cpp_array : str
+    """
     # Convert b"abcd" to {'0x61', '0x62', '0x63', '0x64'}
     pkt_string = ",".join([hex(i) for i in b])
     return f"{{ {pkt_string} }}"
 
 
 def split_crash_id(crash_id: str):
+    """
+    Split crash identifier into smaller parts.
+
+    Parameters
+    ----------
+    crash_id : str
+        Crash identifier
+
+    Returns
+    -------
+    assert_error : str
+        Assert error line in `crash_id`
+    guru_error : str | None
+        Guru Meditation error line in `crash_id`
+    backtrace1 : str
+        The first backtrace
+    backtrace2 : str | None
+        The second backtrace
+    """
     # Guru xxx|Backtrace: xxx |Backtrace: xxx
     # Backtrace xxx
     splitted = crash_id.split("|")
@@ -260,6 +462,22 @@ def split_crash_id(crash_id: str):
 
 
 def split_backtrace(bt: str):
+    """
+    Split backtrace into hex values. The hex values inside the backtrace are
+    usually paired and each pair is separated by space like: `0x01:0x02 0x03 0x04`.
+
+    Parameters
+    ----------
+    bt : str
+        Backtrace
+
+    Returns
+    -------
+    first_hex : list[str]
+        List of the first hex values of each pair of the hex value.
+    second_hex : list[str]
+        List of the second hex values of each pair of the hex value.
+    """
     splitted = bt.lstrip("Backtrace: ").lstrip("Backtrace:").split(" ")
     first_hex = []
     second_hex = []
@@ -273,6 +491,8 @@ def split_backtrace(bt: str):
 
 def is_same_backtrace(bt1, bt2, threshold: int, first_hex_mismatch_thresh: int = 1):
     """
+    Check if two backtrace are the same.
+
     The following types of backtrace variations are considered as same backtraces. Note that backtraces consist of pairs, and each pair contains two values.
         1. **Either** value in the first pair mismatches
         bt1 > Backtrace:0x4002c7bd:0x3ffcc540 0x40101311:0x3ffcc580 0x4001a637:0x3ffcc5a0 0x40019d11:0x3ffcc5d0 0x40055b4d:0x3ffcc5f0 0x400fdb3b:0x3ffcc610 0x400fe0fd:0x3ffcc630 0x4009153d:0x3ffcc660
@@ -294,6 +514,22 @@ def is_same_backtrace(bt1, bt2, threshold: int, first_hex_mismatch_thresh: int =
 
     Erroneous backtrace should return False.
         1. Backtrace:XXXX |<-CORRUPTED
+
+    Parameters
+    ----------
+    bt1 : None | str
+        The first backtrace
+    bt2 : None | str
+        The second backtrace
+    threshold : int
+        The maximum value of the hex value difference between the two backtraces so that
+        the two backtraces can be classified as the same backtrace.
+    first_hex_mismatch_thresh : int
+        In some scenarios, the two backtraces can be the same backtrace even some first hex values are mismatched.
+
+    Returns
+    -------
+    is_bt1_bt2_same : bool
     """
     if bt1 is None and bt2 is None:
         return True
@@ -341,6 +577,27 @@ def is_same_backtrace(bt1, bt2, threshold: int, first_hex_mismatch_thresh: int =
 
 
 def is_same_corrupted_crash(crash_id1: str, crash_id2: str, threshold: int = 2000):
+    """
+    Check if two **corrupted** crash identifiers can be classified as the same one.
+
+    Parameters
+    ----------
+    crash_id1 : str
+        The first crash identifier
+    crash_id2 : str
+        The second crash identifier
+    threshold : int, default 2000
+        The maximum value of the hex value difference between the two backtraces so that
+        the two backtraces can be classified as the same backtrace.
+
+    Returns
+    -------
+    is_same : bool
+
+    See Also
+    --------
+    `is_same_crash` for checking the normal crash identifiers.
+    """
     if ("<-CORRUPTED" in crash_id1 and "<-CORRUPTED" not in crash_id2) or (
         "<-CORRUPTED" not in crash_id1 and "<-CORRUPTED" in crash_id2
     ):
@@ -359,6 +616,27 @@ def is_same_corrupted_crash(crash_id1: str, crash_id2: str, threshold: int = 200
 
 
 def is_same_crash(crash_id1: str, crash_id2: str, threshold: int = 2000):
+    """
+    Check if two crash identifiers can be classified as the same one.
+
+    Parameters
+    ----------
+    crash_id1 : str
+        The first crash identifier
+    crash_id2 : str
+        The second crash identifier
+    threshold : int, default 2000
+        The maximum value of the hex value difference between the two backtraces so that
+        the two backtraces can be classified as the same backtrace.
+
+    Returns
+    -------
+    is_same : bool
+
+    See Also
+    --------
+    `is_same_corrupted_crash` for checking the **corrupted** crash identifiers.
+    """
     # Mainly for ESP32 crashes, because only ESP32 will generate "useful" crash logs with backtraces
     # to help identify and distinguish crashes
     if crash_id1 == crash_id2:
@@ -390,9 +668,18 @@ def is_same_crash(crash_id1: str, crash_id2: str, threshold: int = 2000):
 
 def extract_ts(s: str) -> float:
     """
-    Extract and convert timestamp from `[2022-06-22 22:54:46.827969] Guru Meditation Error:`-like string.
+    Extract and convert timestamp from a string like `[2022-06-22 22:54:46.827969] Guru Meditation Error:`.
 
-    Return Unix timestamp. If no `[2022-06-22 22:54:46.827969]`-like string are found in the input, return 0.
+    Parameters
+    ----------
+    s : str
+        String that contains a timestamp
+
+    Returns
+    -------
+    ts : float
+        Unix timestamp, in seconds.
+        If no `[2022-06-22 22:54:46.827969]`-like string are found in the input, return 0.
     """
     timestamp_re = re.compile(r"^\[.*?\]")
     if len(timestamp_re.findall(s)) == 0:
@@ -412,4 +699,5 @@ if __name__ == "__main__":
     # print(gen_universal_exploit_script(fuzzed_pkts))
     crash1 = "Guru Meditation Error: Core  0 panic'ed (StoreProhibited). Exception was unhandled.|Backtrace:0x4002bdbf:0x3ffcc520 0x40101311:0x3ffcc580 0x4001a637:0x3ffcc5a0 0x40019d11:0x3ffcc5d0 0x40055b4d:0x3ffcc5f0 0x400fdb3b:0x3ffcc610 0x400fe0fd:0x3ffcc630 0x4009153d:0x3ffcc660"
     crash2 = "Guru Meditation Error: Core  0 panic'ed (StoreProhibited). Exception was unhandled.|Backtrace:0x4002bdbf:0x3ffcc110 0x40101311:0x3ffcc170 0x4001a637:0x3ffcc190 0x40019d11:0x3ffcc1c0 0x40055b4d:0x3ffcc1e0 0x400fdb3b:0x3ffcc200 0x400fe0fd:0x3ffcc220 0x4009153d:0x3ffcc250"
+    print(is_same_crash(crash1, crash2, 2000))
     print(is_same_crash(crash1, crash2, 2000))
