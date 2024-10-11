@@ -22,7 +22,15 @@ from wdissector import (
     wd_set_packet_direction,
 )
 
-from constants import RUN_LOG_PATH
+from constants import (
+    BT_WD_MODEL_CONFIG,
+    BT_WD_SM_CONFIG,
+    FIVEG_WD_MODEL_CONFIG,
+    FIVEG_WD_SM_CONFIG,
+    RUN_LOG_PATH,
+    WIFI_WD_MODEL_CONFIG,
+    WIFI_WD_SM_CONFIG,
+)
 
 
 def count_mut_dup(exploit_path: str) -> tuple[int, int]:
@@ -255,14 +263,14 @@ class WDissectorTool:
         Initialize WDissector instance.
         """
         if protocol == "bt":
-            state_machine_config = "/home/user/wdissector/configs/bt_config.json"
-            model_config = "/home/user/wdissector/configs/models/bt/sdp_rfcomm_query.json"
+            state_machine_config = BT_WD_SM_CONFIG
+            model_config = BT_WD_MODEL_CONFIG
         elif protocol == "5g":
-            state_machine_config = "/home/user/wdissector/configs/5gnr_gnb_config.json"
-            model_config = "/home/user/wdissector/configs/models/5gnr_gnb/nr-softmodem.json"
+            state_machine_config = FIVEG_WD_SM_CONFIG
+            model_config = FIVEG_WD_MODEL_CONFIG
         elif protocol == "wifi":
-            state_machine_config = "/home/user/wdissector/configs/wifi_ap_config.json"
-            model_config = "/home/user/wdissector/configs/models/wifi_ap/wpa2_eap.json"
+            state_machine_config = WIFI_WD_SM_CONFIG
+            model_config = WIFI_WD_MODEL_CONFIG
 
         self.StateMachine = Machine()
         # Load State Mapper configuration
