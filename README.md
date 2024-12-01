@@ -1,6 +1,35 @@
-# AirBugCatcher
+# AirBugCatcher: Automated Wireless Reproduction of IoT Bugs
 
 AirBugCatcher is a useful tool to automatically and reliably reproduce wireless protocol vulnerabilities, which complements the security testing pipeline. AirBugCatcher is tested on wireless protocols such as Bluetooth Classic, 5G NR and Wi-Fi, and achieves satisfactory results.
+
+<div style="text-align: center;">
+<img alt="arch" src="images/arch.png" style="max-width: 720px;"/>
+</div>
+
+This repository contains implementation for AirBugCatcher written in Python. More details can be found in [AirBugCatcher Paper](images/AirBugCatcher.pdf).
+
+[AirBugCatcher artifacts paper](images/AirBugCatcher_Artifact.pdf) received the following badges in the Annual Computer Security Applications Conference (ACSAC) 2024:
+<div style="text-align: center;">
+  <img src="images/code_avai.png" alt="av" style="width: 145px; height: auto; margin: 0px 4px;" />
+  <img src="images/code_rev.png" alt="rev" style="width: 160px; height: auto; margin: 1px 4px;" />
+</div>
+
+---
+
+**Table of Contents**
+- [Requirement](#requirement)
+  - [Hardware](#hardware)
+  - [Software](#software)
+- [Setup](#setup)
+- [Repository Structure](#repository-structure)
+- [Evaluation Workflow](#evaluation-workflow)
+- [Advanced Usage](#advanced-usage)
+  - [Test Other Targets](#test-other-targets)
+    - [Prepare Fuzzing Logs](#prepare-fuzzing-logs)
+    - [Prepare Exploiter](#prepare-exploiter)
+    - [Run AirBugCatcher](#run-airbugcatcher)
+- [References](#references)
+- [Citing AirBugCatcher](#citing-airbugcatcher)
 
 # Requirement
 
@@ -179,3 +208,14 @@ The files inside `eval_scripts/` folder, under `RQ1/`, `RQ3/`, `RQ4` and `RQ5` a
 via directed fuzzing. In 31st USENIX Security Symposium (USENIX Security 22), pages 1025–1042, Boston, MA, August 2022. USENIX Association.
 2. Zewen Shang, Matheus E. Garbelini, and Sudipta Chattopadhyay. U-fuzz: Stateful fuzzing of iot protocols on cots devices. 17th IEEE International
 Conference on Software Testing, Verification and Validation (ICST), 2024.
+
+# Citing AirBugCatcher
+
+```plain
+@inproceedings{
+  title={AirBugCatcher: Automated Wireless Reproduction of IoT Bugs}, 
+  author={Hua, Guoqiang and Garbelini, Matheus E and Chattopadhyay, Sudipta},
+  booktitle={40th Annual Computer Security Applications Conference (ACSAC 2024)}, 
+  year={2024},
+}
+```
