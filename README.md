@@ -9,7 +9,7 @@ AirBugCatcher is a useful tool to automatically and reliably reproduce wireless 
 This repository contains implementation for AirBugCatcher written in Python. More details can be found in [AirBugCatcher Paper](images/AirBugCatcher.pdf).
 
 [AirBugCatcher artifacts paper](images/AirBugCatcher_Artifact.pdf) received the following badges in the Annual Computer Security Applications Conference (ACSAC) 2024:
-<div style="text-align: center;">
+<div align="center" style="text-align: center;">
   <img src="images/code_avai.png" alt="av" style="width: 145px; height: auto; margin: 0px 4px;" />
   <img src="images/code_rev.png" alt="rev" style="width: 160px; height: auto; margin: 1px 4px;" />
 </div>
