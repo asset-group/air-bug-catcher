@@ -39,7 +39,7 @@ The application of AirBugCatcher involves interactions with hardwares such as ES
 
 ## Software
 
-AirBugCatcher is utilizing a fuzzing tool WDissector \[1\]\[2\] and our research team developing WDissector has made the tool publicly available at: https://hub.docker.com/r/megarbelini/5ghoul. Note that this Docker image contains everything needed for Bluetooth, Wi-Fi and 5G fuzzing.
+AirBugCatcher is utilizing a fuzzing tool WDissector \[1\] and our research team developing WDissector has made the tool publicly available at: https://hub.docker.com/r/megarbelini/5ghoul. The paper and artifacts are available at https://www.usenix.org/conference/usenixsecurity22/presentation/garbelini. Note that this Docker image contains everything needed for Bluetooth, Wi-Fi and 5G fuzzing.
 
 AirBugCatcher is purely written in Python. While AirBugCatcher is developed using Python 3.12.3 on Ubuntu, it should run smoothly for Python version >= 3.8. A list of Python package dependencies can be found in `requirements.txt`.
 
@@ -182,7 +182,7 @@ It is easy to extend AirBugCatcher to support other targets besides the five tar
 ### Prepare Fuzzing Logs
 
 For example, we want to extend AirBugCatcher to Bluetooth device **XTooth** (for demonstration purpose only as there is no such device). 
-Run WDissector with the device and get the fuzzing logs. The instructions on how to run WDissector can be found in prior works \[1\]\[2\]. Then navigate to folder `fuzzlog/`, a new file may be created for the new device: `bt_xtooth.py` (there is no naming requirement, any name is accepted). Please insert the *logic for processing and analyzing the fuzzing logs* for XTooth in this file. Kindly check the existing files in `fuzzlog/` folder for reference. The fuzzing logs may have  different format for different devices.
+Run WDissector with the device and get the fuzzing logs. The instructions on how to run WDissector can be found in prior works \[1\]. Then navigate to folder `fuzzlog/`, a new file may be created for the new device: `bt_xtooth.py` (there is no naming requirement, any name is accepted). Please insert the *logic for processing and analyzing the fuzzing logs* for XTooth in this file. Kindly check the existing files in `fuzzlog/` folder for reference. The fuzzing logs may have  different format for different devices.
 
 ### Prepare Exploiter
 
@@ -206,8 +206,6 @@ The files inside `eval_scripts/` folder, under `RQ1/`, `RQ3/`, `RQ4` and `RQ5` a
 
 1. Matheus E. Garbelini, Vaibhav Bedi, Sudipta Chattopadhyay, Sumei Sun, and Ernest Kurniawan. BrakTooth: Causing havoc on bluetooth link manager
 via directed fuzzing. In 31st USENIX Security Symposium (USENIX Security 22), pages 1025–1042, Boston, MA, August 2022. USENIX Association.
-2. Zewen Shang, Matheus E. Garbelini, and Sudipta Chattopadhyay. U-fuzz: Stateful fuzzing of iot protocols on cots devices. 17th IEEE International
-Conference on Software Testing, Verification and Validation (ICST), 2024.
 
 # Citing AirBugCatcher
 
