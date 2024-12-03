@@ -104,7 +104,7 @@ AirBugCatcher is a typical Python application. Some helper scripts to run the ev
     - File `setup_container.sh` helps setup Podman and WDissector container.
     - File `setup_airbugcatcher.sh` helps to setup the environment and AirBugCatcher inside the WDissector container.
 - **Dataset**\
-    *Note: The two datasets we provided are compressed using LZMA for better compression ratio. To extract the files, command `tar --lzma -xvf file.tar.lama` can be useful.*
+    *Note: The two datasets we provided are compressed using LZMA for better compression ratio. To extract the files, command `tar --lzma -xvf file.tar.lzma` can be useful.*
     - File `captures.tar.lzma` contains the fuzzing logs of the targets during our evaluations.
     - File `our_results.tar.lzma` contains the evaluation results during our experiments.
 - **Miscellaneous**
