@@ -125,13 +125,13 @@ At the end of each RQ evaluation, the statistics will be generated and shown on 
 
 **Evaluation Progress**
 
-While it takes a long time to run all the evaluations, we provide a helper script to show the progress of the evaluation process. Simply run `bash run_rq_progress.sh` in a new window (inside AirBugCatcher folder) when running either of run_rq1.sh, run_rq3.sh, run_rq4.sh and run_rq5.sh.
+While it takes a long time to run all the evaluations, we provide a helper script to show the progress of the evaluation process. Simply run `bash run_rq_progress.sh` in a new window (inside AirBugCatcher folder) when running either of `run_rq1.sh`, `run_rq3.sh`, `run_rq4.sh` and `run_rq5.sh`.
 
 ![](images/run_rq_progress.png)
 
 **Run Experiment Against One Device Only**
 
-To run our tool on one target only, we need to first prepare the configuration files for the target, then run the experiments. The configuration files for different protocols are different and the related commands to change the configuration files can be found in file /home/user/wdissector/modules/airbugcatcher/run_utils.sh. Moreover, the scripts to run experiments on each device for each research question (RQ) can be found in the folder /home/user/wdissector/modules/airbugcatcher/eval_scripts.
+To run our tool on one target only, we need to first prepare the configuration files for the target, then run the experiments. The configuration files for different protocols are different and the related commands to change the configuration files can be found in file `/home/user/wdissector/modules/airbugcatcher/run_utils.sh`. Moreover, the scripts to run experiments on each device for each research question (RQ) can be found in the folder `/home/user/wdissector/modules/airbugcatcher/eval_scripts`.
 
 For instance, to run RQ1 on Bluetooth target ESP32-WROOM-32 only, the following command can be used:
 
@@ -190,7 +190,7 @@ A new file `bt_xtooth.py` may be needed under folder `exploiter/` for the logic 
 
 ### Run AirBugCatcher
 
-The files inside `eval_scripts/` folder, under `RQ1/`, `RQ3/`, `RQ4` and `RQ5` are great source to start and refer to. Kindly check the following steps before setting off:
+The files inside `eval_scripts/` folder, under `RQ1/`, `RQ3/`, `RQ4/` and `RQ5/` are great source to start and refer to. Kindly check the following steps before setting off:
 1. **Imports**
     - If new device is added and new logic is added to fuzzlog and exploiter, remember to check if the import is correct.
 2. **Fuzzlog**
